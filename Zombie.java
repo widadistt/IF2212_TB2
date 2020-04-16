@@ -1,0 +1,5 @@
+// model
+
+public class Zombie {
+
+}

@@ -1,0 +1,5 @@
+// callbacks
+
+public interface GameEventListener {
+
+}
