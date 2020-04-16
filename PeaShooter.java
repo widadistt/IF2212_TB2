@@ -11,8 +11,6 @@ public class PeaShooter extends Plant{
     private void initialize() {
         ImageIcon imageIcon = ImageFactory.createImage(Image.PEASHOOTER_URL);
         setImage(imageIcon.getImage());
-        
-        
     }
 
     public void update(){

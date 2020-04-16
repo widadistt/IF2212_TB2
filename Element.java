@@ -1,9 +1,10 @@
-import javax.awt.Image;
+import java.awt.Image;
 
 public abstract class Element{
     private Point origin;
     private Image image;
     private boolean dead;
+    private char type;
 
     public Element(Point origin){
         this.origin = origin;
@@ -48,13 +49,18 @@ public abstract class Element{
     public boolean isDead() {
         return dead;
     }
-    
-    public abstract void move();
+
+    public void setType(char type) {
+        this.type = type;
+    }
+
+    public char getType() {
+        return type;
+    }
 
 	public abstract void update();
 
     public void die() {
         this.dead = true;
     }
-
 }

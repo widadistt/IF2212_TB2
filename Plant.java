@@ -5,16 +5,16 @@ import java.util.List;
 public abstract class Plant extends Element{
     private int life;
     private int price;
-    /*
+    
 	public static boolean isPlant(Element e) {
-		return e.getShow() == 'P' || e.getShow() == 'S';
+		return e.getType() == 'P' || e.getType() == 'S';
 	}
-	*/
+	
 	public static boolean containsPlant(List<Element> e) {
         for (Element element : e){
             if (isPlant(element)) {
-				return true;
-			}
+                return true;
+            }
         }
 		return false;		
 	}
@@ -42,7 +42,11 @@ public abstract class Plant extends Element{
     public void setLife(int life){
         this.life = life;
     }
-	
+    
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     protected void shoot(int power){
         Bullet bullet = new Bullet(power,super.getOrigin().getAbsis()+1, super.getOrigin().getOrdinat());
         Game.addElement(bullet, false);

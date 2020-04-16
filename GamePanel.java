@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
-
+import java.util.List;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel {
@@ -33,7 +33,30 @@ public class GamePanel extends JPanel {
     private void drawElement(Graphics g) {
         if (inGame){
             for (Element elmt: elements){
-                g.drawImage(ImageFactory.createImage(Image.elmt), elmt.getX(), elmt.getY(), this);
+                switch (elmt.getType()) {
+                    case 'P':
+                        g.drawImage(ImageFactory.createImage(Image.PEASHOOTER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                        break;
+
+                    case 'S':
+                        g.drawImage(ImageFactory.createImage(Image.SNOWPEA).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                        break;
+
+                    case 'R':
+                        g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                        break;
+
+                    case 'C':
+                        g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                        break;
+
+                    case 'F':
+                        g.drawImage(ImageFactory.createImage(Image.SUNFLOWER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);    
+                        break;
+
+                    default:
+                        break;
+                }
             }
         } else {
             if (timer.isRunning()){
@@ -50,7 +73,7 @@ public class GamePanel extends JPanel {
         g.drawImage(backgroundImage.getImage(), 0, 0,this.getWidth(), this.getHeight(), null);
         System.out.println("REPAINT");
 
-        doDrawing(g);
+        drawElement(g);
     }
 
     public void doOneLoop() {
