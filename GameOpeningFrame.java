@@ -16,7 +16,7 @@ public class GameOpeningFrame extends javax.swing.JFrame {
       });
       pack();
       setVisible(true);
-   //   setSize(900,1600);
+      setSize(900,1600);
    }
    public static void main(String[] args) throws Exception {
       new GameOpeningFrame();

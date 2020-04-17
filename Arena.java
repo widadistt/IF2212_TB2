@@ -6,32 +6,37 @@ public class Arena{
     public char[] row2; 
     public char[] row3; 
     public char[] row4; 
-    
-    public Arena(){
-        this.row1 = new char[60];
-        this.row2 = new char[60];
-        this.row3 = new char[60];
-        this.row4 = new char[60];
+    public char[] row5; 
 
-        row1[0] = '*';
-        row1[59] = '*'; 
-        for (int i= 1; i < 59; i++ ){
-            row1[i] = ' ';            
+    public Arena(){
+        this.row1 = new char[9];
+        this.row2 = new char[9];
+        this.row3 = new char[9];
+        this.row4 = new char[9];
+        this.row5 = new char[9];
+
+//        row1[0] = '*';
+//        row1[59] = '*'; 
+        for (int i= 1; i < 9; i++ ){
+            row1[i-1] = ' ';            
         }
-        row2[0] = '*';
-        row2[59] = '*'; 
-        for (int i= 1; i < 59; i++ ){
-            row2[i] = ' ';            
+//        row2[0] = '*';
+//        row2[59] = '*'; 
+        for (int i= 1; i < 9; i++ ){
+            row2[i-1] = ' ';            
         }
-        row3[0] = '*';
-        row3[59] = '*'; 
-        for (int i= 1; i < 59; i++ ){
-            row3[i] = ' ';            
+//        row3[0] = '*';
+//        row3[59] = '*'; 
+        for (int i= 1; i < 9; i++ ){
+            row3[i-1] = ' ';            
         }
-        row4[0] = '*';
-        row4[59] = '*'; 
-        for (int i= 1; i < 59; i++ ){
-            row4[i] = ' ';            
+//        row4[0] = '*';
+//        row4[59] = '*'; 
+        for (int i= 1; i < 9; i++ ){
+            row4[i-1] = ' ';   
+        }    
+        for (int i= 1; i < 9; i++ ){
+            row5[i-1] = ' ';               
         }
     }
 	

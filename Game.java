@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +80,9 @@ public class Game{
 		return cElements;		
 	}
     
+    public static void addPlants(Point p, String type){
+        Game.addPlants(p.getX(), p.getY(), type);
+    }
     public static void addPlants(int x, int y, String type){
         Plant plant;
         if (type.equals("P") || (type.equals("p"))){
