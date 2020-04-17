@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.Timer;
 
@@ -13,6 +14,7 @@ public class GamePanel extends JPanel {
     private Timer timer;
     public static List<Element> elements;
     private boolean inGame;
+    public static boolean isShot;
 
     public GamePanel() {
         initializeVariables();
@@ -26,6 +28,8 @@ public class GamePanel extends JPanel {
     }
 
     private void initializeLayout() {
+        addKeyListener(new GameEventListener(this));
+        setFocusable(true);
         setPreferredSize(new Dimension(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT));
 
     }
@@ -33,29 +37,35 @@ public class GamePanel extends JPanel {
     private void drawElement(Graphics g) {
         if (inGame){
             for (Element elmt: elements){
-                switch (elmt.getType()) {
-                    case 'P':
-                        g.drawImage(ImageFactory.createImage(Image.PEASHOOTER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
-                        break;
+                if (elmt.getOrigin().getAbsis() <= Constants.BOARD_WIDTH) {
+                    switch (elmt.getType()) {
+                        case 'P':
+                            g.drawImage(ImageFactory.createImage(Image.PEASHOOTER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                            break;
 
-                    case 'S':
-                        g.drawImage(ImageFactory.createImage(Image.SNOWPEA).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
-                        break;
+                        case 'S':
+                            g.drawImage(ImageFactory.createImage(Image.SNOWPEA).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                            break;
 
-                    case 'R':
-                        g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
-                        break;
+                        case 'R':
+                            g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                            break;
 
-                    case 'C':
-                        g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
-                        break;
+                        case 'C':
+                            g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                            break;
 
-                    case 'F':
-                        g.drawImage(ImageFactory.createImage(Image.SUNFLOWER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);    
-                        break;
+                        case 'F':
+                            g.drawImage(ImageFactory.createImage(Image.SUNFLOWER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);    
+                            break;
 
-                    default:
-                        break;
+                        case '-':
+                            g.drawImage(ImageFactory.createImage(Image.PEASHOOTER_BULLET).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), null);
+                            break;
+                            
+                        default:
+                            break;
+                    }
                 }
             }
         } else {
@@ -83,5 +93,27 @@ public class GamePanel extends JPanel {
 
     public void update() {
         System.out.println("UPDATE");
+        // plant shot, move zombie;
+        //this.Plant.move();
+    }
+
+    public void keyReleased(KeyEvent e) {
+        //this.Plant.keyReleased(e);
+        System.out.println("PRESSED");
+    }
+
+    public void keyPressed(KeyEvent e) {
+        //this.Plant.keyReleased(e);
+        System.out.println("RELEASED");
+/*
+        // if user press 'SPACE' then the game skip/update
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_SPACE){
+            // update /skip
+            if (inGame) {
+                
+            }
+        }
+        */
     }
 }

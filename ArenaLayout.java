@@ -145,7 +145,7 @@ public ArenaLayout(){
     pAdd.setSize(300, 100);
     pPoint.setSize(600,100);
 }  
-public static void main(String[] args) {  
-    new ArenaLayout();  
-}  
+    public static void main(String[] args) {  
+        new ArenaLayout();  
+    }  
 }  
