@@ -3,23 +3,22 @@ import javax.swing.*;
   
 public class ArenaLayout{  
 JFrame f;  
+Arena a;
 public ArenaLayout(){
 
     f=new JFrame();  
+//    a = new Arena();
     
     //Panel Arena
     JPanel pGrid = new JPanel();
-    pGrid.setSize(900,500);
     
     //Panel AddPlant
     JPanel pAdd = new JPanel();
-    pAdd.setSize(300, 100);
-
+    
     //Panel Sunflower Points
     JPanel pPoint = new JPanel();
-    pPoint.setSize(600,100);
-
-
+    
+    
     // Buttons for Arena
     JButton b1=new JButton();  
     JButton b2=new JButton();  
@@ -66,7 +65,7 @@ public ArenaLayout(){
     JButton b43=new JButton();  
     JButton b44=new JButton();  
     JButton b45=new JButton(); 
-
+    
     b1.setOpaque(false);  
     b2.setOpaque(false);  
     b3.setOpaque(false);  
@@ -92,50 +91,61 @@ public ArenaLayout(){
     pGrid.setLayout(new GridLayout(5,9));  
     
     //Buttons for pAdd
+    //    ImageIcon iconPS = new ImageIcon(new ImageIcon("img\\Peashooter.png").getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT));
     ImageIcon iconPS = new ImageIcon("img\\Peashooter.png");
     ImageIcon iconSP = new ImageIcon("img\\Snow_Pea1.png");
-
+    
+    
     // set icon size
-    Image image = iconPS.getImage(); // transform it 
-    Image newimg = image.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-    iconPS = new ImageIcon(newimg);  // transform it back
-
-    image = iconSP.getImage(); // transform it 
-    newimg = image.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-    iconSP = new ImageIcon(newimg);  // transform it back
-
+    // Image image = iconPS.getImage(); // transform it 
+    // Image newimg = image.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+    // iconPS = new ImageIcon(newimg);  // transform it back
+    
+    // image = iconSP.getImage(); // transform it 
+    // newimg = image.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+    // iconSP = new ImageIcon(newimg);  // transform it back
+    
     JButton addPS=new JButton(iconPS);  
     JButton addSP=new JButton(iconSP); 
-
+    
     addPS.setSize(150, 75);
     addSP.setSize(150, 75);
-
+    
     JLabel labelPS = new JLabel("Peashooter : 350");
     JLabel labelSP = new JLabel("Snowpea : 600");
-
+    
+    labelSP.setSize(150, 10);
+    labelPS.setSize(150, 10);
+    
     pAdd.add(addPS);
     pAdd.add(addSP);
     pAdd.add(labelPS);
     pAdd.add(labelSP);
-
+    
     pAdd.setLayout(new GridLayout(2,2));
-
+    
     ImageIcon PvsZ = new ImageIcon("img\\Peashooter.png");
     JLabel labelPoint = new JLabel("SunFlower Points : ");
-
+    
     pPoint.add(labelPoint);
-
+    
     f.add(pGrid, BorderLayout.CENTER);
     f.add(pPoint, BorderLayout.NORTH);
     f.add(pAdd, BorderLayout.SOUTH);
+
+    pGrid.setBounds(450, 250, 900, 500);
+    pAdd.setBounds(500, 100, 300, 100);
     f.setSize(900,600);  
     f.setVisible(true);
-//    f.setLayout(new GridLayout(3,1,0,10));
-
-//    BufferedImage myImage = ImageIO.read("img\\Background2.jpg");
-//    f.setContentPane(new ImagePanel(myImage));
+    //    f.setLayout(new GridLayout(3,1,0,10));
+    
+    //    BufferedImage myImage = ImageIO.read("img\\Background2.jpg");
+    //    f.setContentPane(new ImagePanel(myImage));
+    pGrid.setSize(900,500);
+    pAdd.setSize(300, 100);
+    pPoint.setSize(600,100);
 }  
 public static void main(String[] args) {  
-    new MyGridLayout();  
+    new ArenaLayout();  
 }  
 }  
