@@ -10,7 +10,10 @@ public class Constants {
     public static final int BOARD_HEIGHT = 600;
 
     // game speed
-    public static final int GAME_SPEED = 500;
+    public static final int GAME_SPEED = 50;
+
+    // bullet speed
+    public static final int BULLET_SPEED = 10;
 
     // icon size
     public static final int PLANT_WIDTH = 96;

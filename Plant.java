@@ -1,5 +1,6 @@
 // model 
 
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 public abstract class Plant extends Element{
@@ -61,5 +62,25 @@ public abstract class Plant extends Element{
         if (life == 0){
             Game.deleteElement(this);
         }
-    }  
+    }
+    
+    public void move() {
+        //move here
+
+        //check if the element go outside the boundary/frame
+    }
+
+    public void keyReleased(KeyEvent e) {
+        // shot every bullet
+        GamePanel.isShot = false;
+    }
+
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_SPACE) {
+            GamePanel.isShot = true;
+        }
+    }
+
 }
