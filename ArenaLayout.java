@@ -164,7 +164,7 @@ public ArenaLayout(){
     b43.setContentAreaFilled(false); 
     b44.setContentAreaFilled(false); 
     b45.setContentAreaFilled(false);
-    
+
     pGrid.add(b1);pGrid.add(b2);pGrid.add(b3);pGrid.add(b4);pGrid.add(b5);  
     pGrid.add(b6);pGrid.add(b7);pGrid.add(b8);pGrid.add(b9);pGrid.add(b10);  
     pGrid.add(b11);pGrid.add(b12);pGrid.add(b13);pGrid.add(b14);pGrid.add(b15);  
@@ -180,8 +180,8 @@ public ArenaLayout(){
     
     //Buttons for pAdd
     //    ImageIcon iconPS = new ImageIcon(new ImageIcon("img\\Peashooter.png").getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT));
-    ImageIcon iconPS = new ImageIcon("img\\Peashooter.png");
-    ImageIcon iconSP = new ImageIcon("img\\Snow_Pea1.png");
+    ImageIcon iconPS = ImageFactory.createImage(Image.PEASHOOTER_CARD);
+    ImageIcon iconSP = ImageFactory.createImage(Image.SNOWPEA_CARD);
     
     // set icon size
     // Image image = iconPS.getImage(); // transform it 
@@ -193,25 +193,23 @@ public ArenaLayout(){
     // iconSP = new ImageIcon(newimg);  // transform it back
     
     JButton addPS=new JButton(iconPS);  
-    JButton addSP=new JButton(iconSP); 
-    
+    JButton addSP=new JButton(iconSP);    
     addPS.setSize(150, 75);
     addSP.setSize(150, 75);
     
-    JLabel labelPS = new JLabel("Peashooter : 350");
-    JLabel labelSP = new JLabel("Snowpea : 600");
+    JLabel labelPS = new JLabel(" ");
+    JLabel labelSP = new JLabel(" ");
     
     labelSP.setSize(150, 10);
     labelPS.setSize(150, 10);
     
     pAdd.add(addPS);
-    pAdd.add(labelPS);
     pAdd.add(addSP);
+    pAdd.add(labelPS);
     pAdd.add(labelSP);
     
     pAdd.setLayout(new GridLayout(4,1));
-    
-    ImageIcon PvsZ = new ImageIcon("img\\Peashooter.png");
+
     JLabel labelPoint = new JLabel("SunFlower Points : ");
     
     pPoint.add(labelPoint);    
@@ -223,13 +221,15 @@ public ArenaLayout(){
     //    BufferedImage myImage = ImageIO.read("img\\Background2.jpg");
     //    f.setContentPane(new ImagePanel(myImage));
     pGrid.setSize(900,500);
+    pGrid.setBackground(new Color(0,0,0,100));
     pAdd.setSize(100, 100);
     pPoint.setSize(600,100);    
 
     this.add(pGrid, BorderLayout.CENTER);
     this.add(pPoint, BorderLayout.NORTH);
     this.add(pAdd, BorderLayout.WEST);
-
+//    this.backgroundImage = ImageFactory.createImage(Image.BACKGROUND);
+    // this.drawImage(background, 0, 0, null);
     this.setResizable(false);
 
     // set action to addButton
@@ -521,6 +521,7 @@ public ArenaLayout(){
        Game.type = s;    
    }
     public static void main(String[] args) {  
-        new ArenaLayout();      
+        new ArenaLayout();     
+        new Game(); 
     }  
 }  

@@ -24,6 +24,8 @@ public class Game{
         sunflowerPoints = 5000;
         elements = new ArrayList<Element>();
         end = false;
+        Game.Start();
+        Game.arena.printArena();       
     }
 
     public static void skip(){
@@ -42,9 +44,11 @@ public class Game{
     }
 
     public static void addElement(Element elmt, boolean mustNotOverlap){
-		if (mustNotOverlap) {
+        
+        if (mustNotOverlap) {
 			if (arena.addElement(elmt)) {
-				elements.add(elmt);
+                elements.add(elmt);
+                GamePanel.elements = elements; //Penyamaan Game dan GamePanel
 			}
 		} else {
 			elements.add(elmt);
@@ -135,5 +139,9 @@ public class Game{
         System.out.println("row : 1 - 4 from top to bottom");
         System.out.println("distance : 1 - 58 from left to right");
         System.out.println("Type : P for PeaShooter ; S for SnowPea");
+    }
+
+    public static void Start(){
+        System.out.println("START THE GAME!");
     }
 }
