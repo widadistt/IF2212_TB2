@@ -7,7 +7,7 @@ Arena a;
 public ArenaLayout(){
 
     f=new JFrame();  
-//    a = new Arena();
+    a = new Arena();
     
     //Panel Arena
     JPanel pGrid = new JPanel();
@@ -20,51 +20,56 @@ public ArenaLayout(){
     
     
     // Buttons for Arena
-    JButton b1=new JButton();  
-    JButton b2=new JButton();  
-    JButton b3=new JButton();  
-    JButton b4=new JButton();  
-    JButton b5=new JButton();  
-    JButton b6=new JButton();  
-    JButton b7=new JButton();  
-    JButton b8=new JButton();  
-    JButton b9=new JButton(); 
-    JButton b10=new JButton();   
-    JButton b11=new JButton();  
-    JButton b12=new JButton();  
-    JButton b13=new JButton();  
-    JButton b14=new JButton();  
-    JButton b15=new JButton();  
-    JButton b16=new JButton();  
-    JButton b17=new JButton();  
-    JButton b18=new JButton();  
-    JButton b19=new JButton(); 
-    JButton b20=new JButton();   
-    JButton b21=new JButton();  
-    JButton b22=new JButton();  
-    JButton b23=new JButton();  
-    JButton b24=new JButton();  
-    JButton b25=new JButton();  
-    JButton b26=new JButton();  
-    JButton b27=new JButton();  
-    JButton b28=new JButton();  
-    JButton b29=new JButton();  
-    JButton b30=new JButton();  
-    JButton b31=new JButton();  
-    JButton b32=new JButton();  
-    JButton b33=new JButton();  
-    JButton b34=new JButton();  
-    JButton b35=new JButton();  
-    JButton b36=new JButton();  
-    JButton b37=new JButton();  
-    JButton b38=new JButton();  
-    JButton b39=new JButton();  
-    JButton b40=new JButton();     
-    JButton b41=new JButton();  
-    JButton b42=new JButton();  
-    JButton b43=new JButton();  
-    JButton b44=new JButton();  
-    JButton b45=new JButton(); 
+//row1
+    ArenaGrid b1 = new ArenaGrid(1,1);  
+    ArenaGrid b2 = new ArenaGrid(2,1);  
+    ArenaGrid b3 = new ArenaGrid(3,1);  
+    ArenaGrid b4 = new ArenaGrid(4,1);  
+    ArenaGrid b5 = new ArenaGrid(5,1);  
+    ArenaGrid b6=new ArenaGrid(6,1);  
+    ArenaGrid b7=new ArenaGrid(7,1);  
+    ArenaGrid b8=new ArenaGrid(8,1);  
+    ArenaGrid b9=new ArenaGrid(9,1); 
+//row2
+    ArenaGrid b10=new ArenaGrid(1,2);   
+    ArenaGrid b11=new ArenaGrid(2,2);  
+    ArenaGrid b12=new ArenaGrid(3,2);  
+    ArenaGrid b13=new ArenaGrid(4,2);  
+    ArenaGrid b14=new ArenaGrid(5,2);  
+    ArenaGrid b15=new ArenaGrid(6,2);  
+    ArenaGrid b16=new ArenaGrid(7,2);  
+    ArenaGrid b17=new ArenaGrid(8,2);  
+    ArenaGrid b18=new ArenaGrid(9,2);
+//row3
+    ArenaGrid b19=new ArenaGrid(1,3); 
+    ArenaGrid b20=new ArenaGrid(2,3);   
+    ArenaGrid b21=new ArenaGrid(3,3);  
+    ArenaGrid b22=new ArenaGrid(4,3);  
+    ArenaGrid b23=new ArenaGrid(5,3);  
+    ArenaGrid b24=new ArenaGrid(6,3);  
+    ArenaGrid b25=new ArenaGrid(7,3);  
+    ArenaGrid b26=new ArenaGrid(8,3);  
+    ArenaGrid b27=new ArenaGrid(9,3);
+//row4
+    ArenaGrid b28=new ArenaGrid(1,4);  
+    ArenaGrid b29=new ArenaGrid(2,4);  
+    ArenaGrid b30=new ArenaGrid(3,4);  
+    ArenaGrid b31=new ArenaGrid(4,4);  
+    ArenaGrid b32=new ArenaGrid(5,4);  
+    ArenaGrid b33=new ArenaGrid(6,4);  
+    ArenaGrid b34=new ArenaGrid(7,4);  
+    ArenaGrid b35=new ArenaGrid(8,4);  
+    ArenaGrid b36=new ArenaGrid(9,4);
+//row5
+    ArenaGrid b37=new ArenaGrid(1,5);  
+    ArenaGrid b38=new ArenaGrid(2,5);  
+    ArenaGrid b39=new ArenaGrid(3,5);  
+    ArenaGrid b40=new ArenaGrid(4,5);     
+    ArenaGrid b41=new ArenaGrid(5,5);  
+    ArenaGrid b42=new ArenaGrid(6,5);  
+    ArenaGrid b43=new ArenaGrid(7,5);  
+    ArenaGrid b44=new ArenaGrid(8,5);  
+    ArenaGrid b45=new ArenaGrid(9,5); 
     
     b1.setOpaque(false);  
     b2.setOpaque(false);  
@@ -143,7 +148,13 @@ public ArenaLayout(){
     //    f.setContentPane(new ImagePanel(myImage));
     pGrid.setSize(900,500);
     pAdd.setSize(300, 100);
-    pPoint.setSize(600,100);
+    pPoint.setSize(600,100);    
+
+    Point pSelect;
+    char type;
+    
+    
+
 }  
     public static void main(String[] args) {  
         new ArenaLayout();  
