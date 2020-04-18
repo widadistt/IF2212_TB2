@@ -55,7 +55,7 @@ public class Arena{
             row3[i] = ' ';         
             row4[i] = ' ';              
         }
-		Point p; char c;
+		BoardPoint p; char c;
         for (Element element : Game.elements){
             p = element.getOrigin();
 			c = element.getType();
@@ -116,7 +116,7 @@ public class Arena{
         }
     }
 
-	public  void deleteElement(Point p){
+	public  void deleteElement(BoardPoint p){
 		checkArray();
         if (p.getOrdinat() == 1){
             row1[p.getAbsis()] = ' ';
@@ -129,7 +129,7 @@ public class Arena{
         }
     }
 	
-    public  boolean moveElement(Element elmt, Point p){ 
+    public  boolean moveElement(Element elmt, BoardPoint p){ 
 	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
 		checkArray();
         if (p.getOrdinat() == 1){
@@ -233,7 +233,7 @@ public class Arena{
         return arr[y-1];
     }
 
-    public char getArray (Point p){
+    public char getArray (BoardPoint p){
         int x = p.getAbsis();
         int y = p.getOrdinat();
         return getArray(x, y);

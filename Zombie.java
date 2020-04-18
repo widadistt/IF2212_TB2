@@ -21,7 +21,7 @@ public abstract class Zombie extends Element{
         this.life = life;
     }
 
-    public Zombie(int life, Point p){
+    public Zombie(int life, BoardPoint p){
         super(p);
         this.life = life;
     }
@@ -38,7 +38,7 @@ public abstract class Zombie extends Element{
 	}
 	
     protected void walk(int distance){
-        Point p = super.getOrigin();
+        BoardPoint p = super.getOrigin();
         while (distance > 0) {
 			p.translate(-1, 0);
 			distance--;

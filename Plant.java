@@ -26,7 +26,7 @@ public abstract class Plant extends Element{
         this.price = price;
     }
 
-    public Plant(int life, int price, Point p){
+    public Plant(int life, int price, BoardPoint p){
         super(p);
         this.life = life;
         this.price = price;
