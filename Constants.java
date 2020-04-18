@@ -7,7 +7,7 @@ public class Constants {
 
     public static final String TITLE = "Plants vs Zombies";
     public static final int BOARD_WIDTH = 1000;
-    public static final int BOARD_HEIGHT = 600;
+    public static final int BOARD_HEIGHT = 700;
 
     // game speed
     public static final int GAME_SPEED = 50;

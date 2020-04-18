@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel {
-    private ImageIcon backgroundImage; 
+    private ImageIcon backgroundImage;
     private Timer timer;
     public static List<Element> elements;
     private boolean inGame;
@@ -29,9 +29,9 @@ public class GamePanel extends JPanel {
 
     private void initializeLayout() {
         addKeyListener(new GameEventListener(this));
+
         setFocusable(true);
         setPreferredSize(new Dimension(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT));
-
     }
 
     private void drawElement(Graphics g) {
@@ -80,7 +80,7 @@ public class GamePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.drawImage(backgroundImage.getImage(), 0, 0,this.getWidth(), this.getHeight(), null);
+        g.drawImage(backgroundImage.getImage(), 0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT, null);
         System.out.println("REPAINT");
 
         drawElement(g);
