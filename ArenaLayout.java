@@ -3,22 +3,26 @@ import javax.swing.*;
 import java.awt.event.*;
   
 public class ArenaLayout extends JFrame{  
+    public static JPanel pGrid = new JPanel();    //Panel Arena
+    public static JPanel pAdd = new JPanel();     //Panel AddPlant
+    public static JPanel pPoint = new JPanel();    //Panel Sunflower Points
 
 public ArenaLayout(){
-     
-//    a = new Arena();
-    
-    //Panel Arena
-    JPanel pGrid = new JPanel();
-    
-    //Panel AddPlant
-    JPanel pAdd = new JPanel();
-    
-    //Panel Sunflower Points
-    JPanel pPoint = new JPanel();
-    
-    
+
+    setTitle(Constants.TITLE);
+        setIconImage(ImageFactory.createImage(Image.ICON).getImage());
+        
+        pack();
+        
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
+        
     // Buttons for Arena
+    pGrid = new JPanel();    
+    pAdd = new JPanel();     
+    pPoint = new JPanel(); 
 //row1
     ArenaGrid b1 = new ArenaGrid(1,1);  
     ArenaGrid b2 = new ArenaGrid(2,1);  
@@ -80,6 +84,86 @@ public ArenaLayout(){
     b8.setOpaque(false);  
     b9.setOpaque(false);  
     b10.setOpaque(false);  
+    b11.setOpaque(false);  
+    b12.setOpaque(false);  
+    b13.setOpaque(false);  
+    b14.setOpaque(false);  
+    b15.setOpaque(false);  
+    b16.setOpaque(false);  
+    b17.setOpaque(false);  
+    b18.setOpaque(false);  
+    b19.setOpaque(false);  
+    b20.setOpaque(false);   
+    b21.setOpaque(false);  
+    b22.setOpaque(false);  
+    b23.setOpaque(false);  
+    b24.setOpaque(false);  
+    b25.setOpaque(false);  
+    b26.setOpaque(false);  
+    b27.setOpaque(false);  
+    b28.setOpaque(false);  
+    b29.setOpaque(false);  
+    b30.setOpaque(false);  
+    b31.setOpaque(false);  
+    b32.setOpaque(false);  
+    b33.setOpaque(false);  
+    b34.setOpaque(false);  
+    b35.setOpaque(false);  
+    b36.setOpaque(false);  
+    b37.setOpaque(false);  
+    b38.setOpaque(false);  
+    b39.setOpaque(false);  
+    b40.setOpaque(false);  
+    b41.setOpaque(false);  
+    b42.setOpaque(false);  
+    b43.setOpaque(false);  
+    b44.setOpaque(false);  
+    b45.setOpaque(false);  
+    b1.setContentAreaFilled(false); 
+    b2.setContentAreaFilled(false); 
+    b3.setContentAreaFilled(false); 
+    b4.setContentAreaFilled(false); 
+    b5.setContentAreaFilled(false); 
+    b6.setContentAreaFilled(false); 
+    b7.setContentAreaFilled(false); 
+    b8.setContentAreaFilled(false); 
+    b9.setContentAreaFilled(false); 
+    b10.setContentAreaFilled(false); 
+    b11.setContentAreaFilled(false); 
+    b12.setContentAreaFilled(false); 
+    b13.setContentAreaFilled(false); 
+    b14.setContentAreaFilled(false); 
+    b15.setContentAreaFilled(false); 
+    b16.setContentAreaFilled(false); 
+    b17.setContentAreaFilled(false); 
+    b18.setContentAreaFilled(false); 
+    b19.setContentAreaFilled(false); 
+    b20.setContentAreaFilled(false);  
+    b21.setContentAreaFilled(false); 
+    b22.setContentAreaFilled(false); 
+    b23.setContentAreaFilled(false); 
+    b24.setContentAreaFilled(false); 
+    b25.setContentAreaFilled(false); 
+    b26.setContentAreaFilled(false); 
+    b27.setContentAreaFilled(false); 
+    b28.setContentAreaFilled(false); 
+    b29.setContentAreaFilled(false); 
+    b30.setContentAreaFilled(false); 
+    b31.setContentAreaFilled(false); 
+    b32.setContentAreaFilled(false); 
+    b33.setContentAreaFilled(false); 
+    b34.setContentAreaFilled(false); 
+    b35.setContentAreaFilled(false); 
+    b36.setContentAreaFilled(false); 
+    b37.setContentAreaFilled(false); 
+    b38.setContentAreaFilled(false); 
+    b39.setContentAreaFilled(false); 
+    b40.setContentAreaFilled(false); 
+    b41.setContentAreaFilled(false); 
+    b42.setContentAreaFilled(false); 
+    b43.setContentAreaFilled(false); 
+    b44.setContentAreaFilled(false); 
+    b45.setContentAreaFilled(false);
     
     pGrid.add(b1);pGrid.add(b2);pGrid.add(b3);pGrid.add(b4);pGrid.add(b5);  
     pGrid.add(b6);pGrid.add(b7);pGrid.add(b8);pGrid.add(b9);pGrid.add(b10);  
@@ -121,21 +205,16 @@ public ArenaLayout(){
     labelPS.setSize(150, 10);
     
     pAdd.add(addPS);
-    pAdd.add(addSP);
     pAdd.add(labelPS);
+    pAdd.add(addSP);
     pAdd.add(labelSP);
     
-    pAdd.setLayout(new GridLayout(2,2));
+    pAdd.setLayout(new GridLayout(4,1));
     
     ImageIcon PvsZ = new ImageIcon("img\\Peashooter.png");
     JLabel labelPoint = new JLabel("SunFlower Points : ");
     
-    pPoint.add(labelPoint);
-    
-    this.add(pGrid, BorderLayout.CENTER);
-    this.add(pPoint, BorderLayout.NORTH);
-    this.add(pAdd, BorderLayout.SOUTH);
-
+    pPoint.add(labelPoint);    
     pGrid.setBounds(450, 250, 900, 500);
     pAdd.setBounds(500, 100, 300, 100);
     this.setSize(900,600);  
@@ -146,6 +225,10 @@ public ArenaLayout(){
     pGrid.setSize(900,500);
     pAdd.setSize(100, 100);
     pPoint.setSize(600,100);    
+
+    this.add(pGrid, BorderLayout.CENTER);
+    this.add(pPoint, BorderLayout.NORTH);
+    this.add(pAdd, BorderLayout.WEST);
 
     this.setResizable(false);
 

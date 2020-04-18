@@ -17,7 +17,7 @@ public class GameMainFrame extends JFrame{
     }
 
     private void initializeLayout(){
-        add(new ArenaLayout());
+        ArenaLayout a = new ArenaLayout();
         setTitle(Constants.TITLE);
         setIconImage(ImageFactory.createImage(Image.ICON).getImage());
         
@@ -28,6 +28,9 @@ public class GameMainFrame extends JFrame{
         setResizable(false);
         setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
         setLayout(null);
+        this.add(ArenaLayout.pGrid, BorderLayout.CENTER);
+        this.add(ArenaLayout.pPoint, BorderLayout.NORTH);
+        this.add(ArenaLayout.pAdd, BorderLayout.WEST);
         setVisible(true);
     }
     public static void main(String[] args) {  

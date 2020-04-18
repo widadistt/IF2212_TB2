@@ -11,7 +11,6 @@ public class ArenaGrid extends JButton{
         this.setActionCommand("changePoint");
     }
 
-
     public BoardPoint getOrigin(){
         return origin;
     } 
