@@ -1,24 +1,52 @@
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.IOException;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
+import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.*;
 
-public class GameOpeningFrame extends javax.swing.JFrame {
-   Image img = Toolkit.getDefaultToolkit().getImage("img/362210.jpg");
-   public GameOpeningFrame () throws IOException {
-      this.setContentPane(new JPanel() {
-         @Override
-         public void paintComponent(Graphics g) {
+public class GameOpeningFrame extends JFrame {
+   private boolean isStart;
+   private GameMainFrame gmf;
+   
+   public GameOpeningFrame(){
+      initializeVariables();
+      initializeLayout();
+   }
+   
+   private void initializeVariables() {
+      isStart = false;
+   }
+   
+   private void initializeLayout(){
+      setTitle(Constants.TITLE);
+      setIconImage(ImageFactory.createImage(Image.ICON).getImage());
+      setVisible(true);
+
+      JButton openingButton = new JButton() {
+         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(img, 0, 0, null);
+            g.drawImage(ImageFactory.createImage(Image.OPENING).getImage(), 0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT, null);
+         }
+      }; 
+      openingButton.setBounds(0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
+      add(openingButton);
+      openingButton.addActionListener(new ActionListener(){  
+         public void actionPerformed(ActionEvent e){  
+            gmf = new GameMainFrame();
+            gmf.setVisible(true);
+            //this.add(gmf);
+            setVisible(false);
          }
       });
-      pack();
-      setVisible(true);
-      setSize(900,1600);
-   }
-   public static void main(String[] args) throws Exception {
-      new GameOpeningFrame();
+      if (isStart) {
+      
+      }
+
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setLocationRelativeTo(null);
+      setResizable(false);
+      setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
+      setLayout(null);
    }
 }

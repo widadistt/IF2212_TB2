@@ -61,7 +61,7 @@ public class Game{
 		}
     }
 	
-    public static boolean moveElement(Element elmt, Point p, boolean mustNotOverlap) { 
+    public static boolean moveElement(Element elmt, BoardPoint p, boolean mustNotOverlap) { 
 	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
 		if (mustNotOverlap) {
 			return arena.moveElement(elmt, p);
@@ -71,7 +71,7 @@ public class Game{
 		}
     }
 	
-	public static List<Element> getElements(Point p) {
+	public static List<Element> getElements(BoardPoint p) {
         List<Element> cElements = new ArrayList<Element>();
         for (Element element : elements){
             if(element.getOrigin().equals(p)) {

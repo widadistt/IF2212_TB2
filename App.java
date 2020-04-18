@@ -7,7 +7,7 @@ public class App {
         //new GameOpeningFrame();
 
         EventQueue.invokeLater( () -> {
-            new GameMainFrame();
+            new GameOpeningFrame();
         });
     }
 }

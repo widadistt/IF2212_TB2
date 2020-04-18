@@ -3,7 +3,7 @@ import javax.swing.ImageIcon;
 public class Bullet extends Element{
 	private int power;
     
-    public Bullet(int power, Point p){
+    public Bullet(int power, BoardPoint p){
         super(p);
         this.power = power;
 		super.setType('-');
@@ -42,7 +42,7 @@ public class Bullet extends Element{
 */
     public void move(){
 		int distance = Constants.BULLET_SPEED;
-        Point p = super.getOrigin();
+        BoardPoint p = super.getOrigin();
         while (distance > 0) {
 			p.translate(1, 0);
 			distance--;

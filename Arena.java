@@ -31,20 +31,20 @@ public class Arena{
         
 //        row2[0] = '*';
 //        row2[59] = '*'; 
-        for (int i= 1; i <= 9; i++ ){
+        for (i= 1; i <= 9; i++ ){
             row2[i-1] = ' ';            
         }
 //        row3[0] = '*';
 //        row3[59] = '*'; 
-        for (int i= 1; i <= 9; i++ ){
+        for (i= 1; i <= 9; i++ ){
             row3[i-1] = ' ';            
         }
 //        row4[0] = '*';
 //        row4[59] = '*'; 
-        for (int i= 1; i <= 9; i++ ){
+        for (i= 1; i <= 9; i++ ){
             row4[i-1] = ' ';   
         }    
-        for (int i= 1; i <= 9; i++ ){
+        for (i= 1; i <= 9; i++ ){
             row5[i-1] = ' ';               
         }
     }
@@ -64,7 +64,7 @@ public class Arena{
             row3[i] = ' ';         
             row4[i] = ' ';              
         }
-		Point p; char c;
+		BoardPoint p; char c;
         for (Element element : Game.elements){
             p = element.getOrigin();
             c = element.getType();
@@ -139,7 +139,7 @@ public class Arena{
         }
     }
 
-	public  void deleteElement(Point p){
+	public  void deleteElement(BoardPoint p){
 		checkArray();
         if (p.getOrdinat() == 1){
             row1[p.getAbsis()] = ' ';
@@ -154,7 +154,7 @@ public class Arena{
         mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] = ' ';
     }
 	
-    public  boolean moveElement(Element elmt, Point p){ 
+    public  boolean moveElement(Element elmt, BoardPoint p){ 
 	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
         checkArray();
         // matrix ver
@@ -271,7 +271,7 @@ public class Arena{
         return arr[y-1];
     }
 
-    public char getArray (Point p){
+    public char getArray (BoardPoint p){
         int x = p.getAbsis();
         int y = p.getOrdinat();
         return getArray(x, y);
