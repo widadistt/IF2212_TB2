@@ -428,12 +428,12 @@ public ArenaLayout(){
             arenaGridActionPerformed(evt, b1.getOrigin()) ;
         }
     });
-  
-    public void arenaGridActionPerformed(java.awt.event.ActionEvent evt, Point p) {                                              
+}  
+    public void arenaGridActionPerformed(java.awt.event.ActionEvent evt, BoardPoint p) {                                              
          //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());  
         Game.addPlants(p,Game.type);    
     }
-    public void addButtonGridActionPerformed(java.awt.event.ActionEvent evt, String s) {                                              
+    public void addButtonActionPerformed(java.awt.event.ActionEvent evt, String s) {                                              
         //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());  
        Game.type = s;    
    }

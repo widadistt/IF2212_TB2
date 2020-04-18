@@ -28,7 +28,7 @@ public class Game{
 
     public static void skip(){
         if (!end){
-            if ((arena.row1[1] == 'C') || (arena.row1[1] == 'R') || (arena.row2[1] == 'C') || (arena.row2[1] == 'R') || (arena.row3[1] == 'C') || (arena.row3[1] == 'R') || (arena.row4[1] == 'C') || (arena.row4[1] == 'R')){ // cek ada zombie diujung ato ngga
+            if ((Arena.mat[1][1] == 'C') || (Arena.mat[1][1] == 'R') || (Arena.mat[2][1] == 'C') || (Arena.mat[2][1] == 'R') || (Arena.mat[3][1] == 'C') || (Arena.mat[3][1] == 'R') || (Arena.mat[4][1] == 'C') || (Arena.mat[4][1] == 'R')){ // cek ada zombie diujung ato ngga
                 end = true;
             } else {
                 List<Element> cElements = new ArrayList<Element>(elements);
@@ -81,9 +81,9 @@ public class Game{
 		return cElements;		
 	}
     
-    public static void addPlants(Point p, String type){
-        int x = (int) p.getX();
-        int y = (int) p.getY();
+    public static void addPlants(BoardPoint p, String type){
+        int x = (int) p.getAbsis();
+        int y = (int) p.getOrdinat();
         Game.addPlants(x, y, type);
     }
     public static void addPlants(int x, int y, String type){
