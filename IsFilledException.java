@@ -7,7 +7,7 @@ public class IsFilledException extends Exception{
         
         JFrame f = new JFrame();
         JPanel p = new JPanel();
-        JLabel message = new JLabel("Sudah Terisi", JLabel.CENTER);
+        JLabel message = new JLabel("This field is filled already!", JLabel.CENTER);
         p.add(message);
         f.add(p);
         f.setSize(200, 80);
