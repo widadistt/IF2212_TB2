@@ -8,11 +8,12 @@ public class Game{
     public static int sunflowerPoints;
     public static List<Element> elements;
     public static boolean end;
+    public static Point p; //untuk addPlants
+    public static String type; //untuk addPlants
 
     public int getSunflowerPoints(){
         return sunflowerPoints;
     }
-
 
     public void setSunflowerPoints(int score){
         sunflowerPoints = score;
@@ -81,7 +82,9 @@ public class Game{
 	}
     
     public static void addPlants(Point p, String type){
-        Game.addPlants(p.getX(), p.getY(), type);
+        int x = (int) p.getX();
+        int y = (int) p.getY();
+        Game.addPlants(x, y, type);
     }
     public static void addPlants(int x, int y, String type){
         Plant plant;

@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Arena{
-
+    public static char[][] mat; 
     public char[] row1; 
     public char[] row2; 
     public char[] row3; 
@@ -9,33 +9,42 @@ public class Arena{
     public char[] row5; 
 
     public Arena(){
+        mat = new char[5][9];
         this.row1 = new char[9];
         this.row2 = new char[9];
         this.row3 = new char[9];
         this.row4 = new char[9];
         this.row5 = new char[9];
 
+        // matrix ver
+        for (int i = 1; i <= 5; i++){
+            for (int j = 1; j <= 9; j++){
+                mat[i-1][j-1] = ' ';
+            }
+        }
+        //
+
 //        row1[0] = '*';
 //        row1[59] = '*'; 
-        for (int i= 1; i < 9; i++ ){
+        for (int i= 1; i <= 9; i++ ){
             row1[i-1] = ' ';            
-        }
+        
 //        row2[0] = '*';
 //        row2[59] = '*'; 
-        for (int i= 1; i < 9; i++ ){
+        for (int i= 1; i <= 9; i++ ){
             row2[i-1] = ' ';            
         }
 //        row3[0] = '*';
 //        row3[59] = '*'; 
-        for (int i= 1; i < 9; i++ ){
+        for (int i= 1; i <= 9; i++ ){
             row3[i-1] = ' ';            
         }
 //        row4[0] = '*';
 //        row4[59] = '*'; 
-        for (int i= 1; i < 9; i++ ){
+        for (int i= 1; i <= 9; i++ ){
             row4[i-1] = ' ';   
         }    
-        for (int i= 1; i < 9; i++ ){
+        for (int i= 1; i <= 9; i++ ){
             row5[i-1] = ' ';               
         }
     }
@@ -49,7 +58,7 @@ public class Arena{
         row3[59] = '*'; 
         row4[0] = '*';
         row4[59] = '*'; 
-        for (int i= 1; i < 59; i++ ){
+        for (int i= 1; i <= 9; i++ ){
             row1[i] = ' ';            
             row2[i] = ' ';           
             row3[i] = ' ';         
@@ -58,7 +67,12 @@ public class Arena{
 		Point p; char c;
         for (Element element : Game.elements){
             p = element.getOrigin();
-			c = element.getType();
+            c = element.getType();
+            // matrix ver
+            if (c != '-' || (c == '-' && mat[p.getOrdinat()-1][p.getAbsis()] == ' ')) {
+                mat[p.getOrdinat()-1][p.getAbsis()] = c;
+            }    
+            //
 			if (p.getOrdinat() == 1) {
 				if (c != '-' || (c == '-' && row1[p.getAbsis()] == ' ')) {
 					row1[p.getAbsis()] = c;
@@ -81,7 +95,16 @@ public class Arena{
 	}
 	
 	public boolean addElement(Element elmt) {
-		checkArray();
+        checkArray();
+    
+        //matrix
+        if (mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] == ' ' || mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] == '-'){
+            mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] = elmt.getType();
+            return true;
+        } else {
+            return false;
+        } 
+        //
         if (elmt.getOrigin().getOrdinat() == 1){
             if (row1[elmt.getOrigin().getAbsis()] == ' ' || row1[elmt.getOrigin().getAbsis()] == '-'){
                 row1[elmt.getOrigin().getAbsis()] = elmt.getType();
@@ -127,11 +150,22 @@ public class Arena{
         } else if (p.getOrdinat() == 4){
             row4[p.getAbsis()] = ' ';
         }
+
+        mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] = ' ';
     }
 	
     public  boolean moveElement(Element elmt, Point p){ 
 	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
-		checkArray();
+        checkArray();
+        // matrix ver
+        if (mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] == ' ') {
+            mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] = elmt.getType();
+            deleteElement(elmt.getOrigin());
+            return true;
+        } else {
+            return false;
+        }
+        
         if (p.getOrdinat() == 1){
 			if (row1[p.getAbsis()] == ' ') {
 				row1[p.getAbsis()] = elmt.getType();
@@ -171,7 +205,11 @@ public class Arena{
     }
 	
     public void printArena(){
-		checkArray();
+        checkArray();
+        
+        for (int i = 0; i <5; i++){
+            
+        }
         //line 1
         for (int i= 0; i < 60; i++ ){
             System.out.print('*');            
