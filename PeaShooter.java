@@ -10,7 +10,7 @@ public class PeaShooter extends Plant{
 
     private void initialize() {
         ImageIcon imageIcon = ImageFactory.createImage(Image.PEASHOOTER);
-        setImage(imageIcon.getImage());
+        setImageIcon(imageIcon);
     }
 
     public void update(){

@@ -19,7 +19,7 @@ public class Bullet extends Element{
 	
 	public void initialize() {
 		ImageIcon imageIcon =  ImageFactory.createImage(Image.PEASHOOTER_BULLET);
-		setImage(imageIcon.getImage());
+		setImageIcon(imageIcon);
 
 
 	}

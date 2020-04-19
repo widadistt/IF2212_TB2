@@ -48,7 +48,7 @@ public class Game{
         if (mustNotOverlap) {
 			if (arena.addElement(elmt)) {
                 elements.add(elmt);
-                GamePanel.elements = elements; //Penyamaan Game dan GamePanel
+                GamePanel.elmtList = elements; //Penyamaan Game dan GamePanel
 			}
 		} else {
 			elements.add(elmt);

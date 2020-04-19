@@ -14,7 +14,7 @@ public class Sunflower extends Element implements MouseListener{
     private JPanel elmtPanel;
     
     public Sunflower(GamePanel gamePanel) {
-        super(new Point(0,0));
+        super(new BoardPoint(0,0));
         Random rnd = new Random();
         setOrigin(rnd.nextInt(900)+25, rnd.nextInt(500)+25);
         setEndordinat(rnd.nextInt(500)+25);
@@ -30,6 +30,7 @@ public class Sunflower extends Element implements MouseListener{
         elmtPanel.setSize(80,80);
         elmtPanel.setLocation(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat());
         elmtPanel.addMouseListener(this);
+        elmtPanel.setVisible(true);
         gamePanel.add(elmtPanel);
     }
 

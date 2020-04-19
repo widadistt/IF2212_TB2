@@ -34,15 +34,15 @@ public class GamePanel extends JPanel {
         this.timer.start();
         sunflowerInjector = new SunflowerInjector(this);
         sunflowerInjector.start();
-		elements = new ArrayList<Element>();
+		elmtList = new ArrayList<Element>();
 		inGame = true;
 		
 		//DEBUG
-		elements.add(new RobotZombie(4,4));
-		elements.add(new RobotZombie(4,3));
-		elements.add(new RobotZombie(4,2));
-		elements.add(new RobotZombie(4,1));
-		elements.add(new RobotZombie(4,0));
+		elmtList.add(new RobotZombie(4,4));
+		elmtList.add(new RobotZombie(4,3));
+		elmtList.add(new RobotZombie(4,2));
+		elmtList.add(new RobotZombie(4,1));
+		elmtList.add(new RobotZombie(4,0));
     }
 
     private void initializeLayout() {
