@@ -3,10 +3,11 @@ import javax.swing.*;
 import java.util.Timer;
 
 public class IsFilledException extends Exception{
-    JFrame f;
+    String m;
     IsFilledException(){
-        f = new JFrame();
-        JOptionPane.showMessageDialog(f,"This field is filled already!");
+        m = "This field is filled already!";
+        // f = new JFrame();
+        // JOptionPane.showMessageDialog(f,"This field is filled already!");
         // JPanel p = new JPanel();
         // JLabel message = new JLabel("This field is filled already!", JLabel.CENTER);
         // p.add(message);
@@ -16,6 +17,10 @@ public class IsFilledException extends Exception{
         // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // f.setVisible(true);
         // set timer
+    }
+
+    public String getMessage(){
+        return m;
     }
 
     public static void main (String args[]){

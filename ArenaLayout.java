@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;  
 import java.awt.event.*;
   
-public class ArenaLayout extends JFrame{  
+public class ArenaLayout extends JFrame{  //hilangin JFramenya 
     public static JPanel pGrid = new JPanel();    //Panel Arena
     public static JPanel pAdd = new JPanel();     //Panel AddPlant
     public static JPanel pPoint = new JPanel();    //Panel Sunflower Points
@@ -19,7 +19,6 @@ public ArenaLayout(){
         setResizable(false);
         setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
         
-    // Buttons for Arena
     pGrid = new JPanel();    
     pAdd = new JPanel();     
     pPoint = new JPanel(); 
@@ -224,18 +223,12 @@ public ArenaLayout(){
     pGrid.setBackground(new Color(255,255,255,0));
     pAdd.setSize(100, 100);
     pPoint.setSize(600,100);    
-/*
-    Point pSelect;
-    char type;
-    */
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     
     this.add(pGrid, BorderLayout.CENTER);
     this.add(pPoint, BorderLayout.NORTH);
     this.add(pAdd, BorderLayout.WEST);
-//    this.backgroundImage = ImageFactory.createImage(Image.BACKGROUND);
-    // this.drawImage(background, 0, 0, null);
     this.setResizable(false);
 
     // set action to addButton
@@ -519,8 +512,8 @@ public ArenaLayout(){
     });
 }  
     public void arenaGridActionPerformed(java.awt.event.ActionEvent evt, BoardPoint p) {                                              
-         //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());  
-        Game.addPlants(p,Game.type);    
+         //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());
+            Game.addPlants(p,Game.type);    
     }
     public void addButtonActionPerformed(java.awt.event.ActionEvent evt, String s) {                                              
         //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());  

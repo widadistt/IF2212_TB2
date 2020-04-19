@@ -2,10 +2,11 @@ import javax.swing.JLabel;
 import javax.swing.*;
 
 public class LoseException extends Exception{
-    JFrame f;
+    String m;
     LoseException(){
-        f = new JFrame();
-        JOptionPane.showMessageDialog(f,"You LOSE");
+        m = "You LOSE";
+        // f = new JFrame();
+        // JOptionPane.showMessageDialog(f,"You LOSE");
         // JPanel p = new JPanel();
         // JLabel message = new JLabel("You LOSE", JLabel.CENTER);
         // p.add(message);
@@ -14,6 +15,10 @@ public class LoseException extends Exception{
         // f.setResizable(false);
         // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // f.setVisible(true);
+    }
+
+    public String getMessage(){
+        return m;
     }
 }
 

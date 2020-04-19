@@ -60,7 +60,7 @@ public class Arena{
 	
     public void printArena(){
         checkArray();
-        for (int i = 0; i <5; i++){
+        for (int i = 0; i < 5; i++){
             for (int j = 0 ; j < 9; j++){
                 System.out.print(mat[i][j]);
             }
