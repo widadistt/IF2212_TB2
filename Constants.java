@@ -31,6 +31,8 @@ public class Constants {
     public static final String SUNFLOWER_URL = "img/Sunflower1a.png";
     public static final String PEASHOOTER_BULLET_URL = "img/ProjectilePea.png";
     public static final String SNOWPEA_BULLET_URL = "img/ProjectileSnowPea.png";
+    public static final String PEASHOOTER_CARD_URL = "img/card_peashooter.png";
+    public static final String SNOWPEA_CARD_URL = "img/card_snowpea.png";
     public static final String ICON = "img/Pea.png";
 
     // BACKGROUND, OPENING, PEASHOOTER, SNOWPEA, ROBOT_ZOMBIE, CRAZY_ZOMBIE, SUNFLOWER

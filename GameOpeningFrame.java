@@ -46,4 +46,8 @@ public class GameOpeningFrame extends JFrame {
       setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
       setLayout(null);
    }
+/*    public static void main(String[] args) {  
+      new GameOpeningFrame();   
+         
+  }  */
 }

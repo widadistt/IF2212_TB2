@@ -8,11 +8,12 @@ public class Game{
     public static int sunflowerPoints;
     public static List<Element> elements;
     public static boolean end;
+    public static Point p; //untuk addPlants
+    public static String type; //untuk addPlants
 
     public int getSunflowerPoints(){
         return sunflowerPoints;
     }
-
 
     public void setSunflowerPoints(int score){
         sunflowerPoints = score;
@@ -23,11 +24,13 @@ public class Game{
         sunflowerPoints = 5000;
         elements = new ArrayList<Element>();
         end = false;
+        Game.Start();
+        Game.arena.printArena();       
     }
 
     public static void skip(){
         if (!end){
-            if ((arena.row1[1] == 'C') || (arena.row1[1] == 'R') || (arena.row2[1] == 'C') || (arena.row2[1] == 'R') || (arena.row3[1] == 'C') || (arena.row3[1] == 'R') || (arena.row4[1] == 'C') || (arena.row4[1] == 'R')){ // cek ada zombie diujung ato ngga
+            if ((Arena.mat[1][1] == 'C') || (Arena.mat[1][1] == 'R') || (Arena.mat[2][1] == 'C') || (Arena.mat[2][1] == 'R') || (Arena.mat[3][1] == 'C') || (Arena.mat[3][1] == 'R') || (Arena.mat[4][1] == 'C') || (Arena.mat[4][1] == 'R')){ // cek ada zombie diujung ato ngga
                 end = true;
             } else {
                 List<Element> cElements = new ArrayList<Element>(elements);
@@ -41,9 +44,11 @@ public class Game{
     }
 
     public static void addElement(Element elmt, boolean mustNotOverlap){
-		if (mustNotOverlap) {
+        
+        if (mustNotOverlap) {
 			if (arena.addElement(elmt)) {
-				elements.add(elmt);
+                elements.add(elmt);
+                GamePanel.elements = elements; //Penyamaan Game dan GamePanel
 			}
 		} else {
 			elements.add(elmt);
@@ -60,7 +65,7 @@ public class Game{
 		}
     }
 	
-    public static boolean moveElement(Element elmt, Point p, boolean mustNotOverlap) { 
+    public static boolean moveElement(Element elmt, BoardPoint p, boolean mustNotOverlap) { 
 	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
 		if (mustNotOverlap) {
 			return arena.moveElement(elmt, p);
@@ -70,7 +75,7 @@ public class Game{
 		}
     }
 	
-	public static List<Element> getElements(Point p) {
+	public static List<Element> getElements(BoardPoint p) {
         List<Element> cElements = new ArrayList<Element>();
         for (Element element : elements){
             if(element.getOrigin().equals(p)) {
@@ -80,8 +85,10 @@ public class Game{
 		return cElements;		
 	}
     
-    public static void addPlants(Point p, String type){
-        Game.addPlants(p.getX(), p.getY(), type);
+    public static void addPlants(BoardPoint p, String type){
+        int x = (int) p.getAbsis();
+        int y = (int) p.getOrdinat();
+        Game.addPlants(x, y, type);
     }
     public static void addPlants(int x, int y, String type){
         Plant plant;
@@ -132,5 +139,9 @@ public class Game{
         System.out.println("row : 1 - 4 from top to bottom");
         System.out.println("distance : 1 - 58 from left to right");
         System.out.println("Type : P for PeaShooter ; S for SnowPea");
+    }
+
+    public static void Start(){
+        System.out.println("START THE GAME!");
     }
 }

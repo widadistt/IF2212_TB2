@@ -46,7 +46,13 @@ public class ImageFactory {
         case ICON:
             imageIcon = new ImageIcon(Constants.ICON);
             break;
-        
+        case PEASHOOTER_CARD:
+            imageIcon = new ImageIcon(Constants.PEASHOOTER_CARD_URL);
+            break;
+
+        case SNOWPEA_CARD:
+            imageIcon = new ImageIcon(Constants.SNOWPEA_CARD_URL);
+            break;        
         default:
             break;
         }
