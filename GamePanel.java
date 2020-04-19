@@ -1,6 +1,7 @@
 // ui package
 
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Dimension;
@@ -28,7 +29,7 @@ public class GamePanel extends JPanel {
     }
 
     private void initializeVariables() {
-        this.backgroundImage = ImageFactory.createImage(Image.BACKGROUND);
+        //this.backgroundImage = ImageFactory.createImage(Image.BACKGROUND);
         sunflowerPoints = 3000;
         timer =  new Timer(Constants.GAME_SPEED, new GameLoop(this));
         this.timer.start();
@@ -36,8 +37,10 @@ public class GamePanel extends JPanel {
         sunflowerInjector.start();
 		elmtList = new ArrayList<Element>();
 		inGame = true;
-		
-		//DEBUG
+		//setBackground(new Color(0,0,0,0));
+        setOpaque(false);
+
+        //DEBUG
 		elmtList.add(new RobotZombie(4,4));
 		elmtList.add(new RobotZombie(4,3));
 		elmtList.add(new RobotZombie(4,2));

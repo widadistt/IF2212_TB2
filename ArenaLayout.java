@@ -2,23 +2,23 @@ import java.awt.*;
 import javax.swing.*;  
 import java.awt.event.*;
   
-public class ArenaLayout extends JFrame{  //hilangin JFramenya 
+public class ArenaLayout extends JFrame{ //extends JFrame{  //hilangin JFramenya 
     public static JPanel pGrid = new JPanel();    //Panel Arena
     public static JPanel pAdd = new JPanel();     //Panel AddPlant
     public static JPanel pPoint = new JPanel();    //Panel Sunflower Points
 
 public ArenaLayout(){
 
-    setTitle(Constants.TITLE);
-        setIconImage(ImageFactory.createImage(Image.ICON).getImage());
+/*      setTitle(Constants.TITLE);
+         setIconImage(ImageFactory.createImage(Image.ICON).getImage());
         
-        pack();
+         pack();
         
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
-        
+         setDefaultCloseOperation(EXIT_ON_CLOSE);
+         setLocationRelativeTo(null);
+         setResizable(false);
+         setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
+     */    
     pGrid = new JPanel();    
     pAdd = new JPanel();     
     pPoint = new JPanel(); 
@@ -178,19 +178,9 @@ public ArenaLayout(){
     pGrid.setLayout(new GridLayout(5,9));  
     
     //Buttons for pAdd
-    //    ImageIcon iconPS = new ImageIcon(new ImageIcon("img\\Peashooter.png").getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT));
     ImageIcon iconPS = ImageFactory.createImage(Image.PEASHOOTER_CARD);
     ImageIcon iconSP = ImageFactory.createImage(Image.SNOWPEA_CARD);
-    
-    // set icon size
-    // Image image = iconPS.getImage(); // transform it 
-    // Image newimg = image.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-    // iconPS = new ImageIcon(newimg);  // transform it back
-    
-    // image = iconSP.getImage(); // transform it 
-    // newimg = image.getScaledInstance(50, 50,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-    // iconSP = new ImageIcon(newimg);  // transform it back
-    
+       
     JButton addPS=new JButton(iconPS);  
     JButton addSP=new JButton(iconSP);    
     addPS.setSize(150, 75);
@@ -209,27 +199,24 @@ public ArenaLayout(){
     
     pAdd.setLayout(new GridLayout(4,1));
 
-    JLabel labelPoint = new JLabel("SunFlower Points : ");
+    JLabel labelPoint = new JLabel("SunFlower Points : " + Game.sunflowerPoints);
     
     pPoint.add(labelPoint);    
     pGrid.setBounds(450, 250, 900, 500);
     pAdd.setBounds(500, 100, 300, 100);
     this.setSize(900,600);  
     this.setVisible(true);
-    //    f.setLayout(new GridLayout(3,1,0,10));
-    //    BufferedImage myImage = ImageIO.read("img\\Background2.jpg");
-    //    f.setContentPane(new ImagePanel(myImage));
     pGrid.setSize(900,500);
     pGrid.setBackground(new Color(255,255,255,0));
     pAdd.setSize(100, 100);
     pPoint.setSize(600,100);    
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    //setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     
     this.add(pGrid, BorderLayout.CENTER);
     this.add(pPoint, BorderLayout.NORTH);
     this.add(pAdd, BorderLayout.WEST);
-    this.setResizable(false);
+    setResizable(false);
 
     // set action to addButton
     addPS.addActionListener(new java.awt.event.ActionListener() {
@@ -271,243 +258,243 @@ public ArenaLayout(){
 
     b5.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b5.getOrigin()) ;
         }
     });
 
     b6.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b6.getOrigin()) ;
         }
     });
 
     b7.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b7.getOrigin()) ;
         }
     });
 
     b8.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b8.getOrigin()) ;
         }
     });
 
     b9.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b9.getOrigin()) ;
         }
     });
 
     b10.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b10.getOrigin()) ;
         }
     });
 
     b11.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b11.getOrigin()) ;
         }
     });
 
     b12.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b12.getOrigin()) ;
         }
     });
 
     b13.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b13.getOrigin()) ;
         }
     });
     b14.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b14.getOrigin()) ;
         }
     });
 
     b15.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b15.getOrigin()) ;
         }
     });
 
     b16.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b16.getOrigin()) ;
         }
     });
 
     b17.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b17.getOrigin()) ;
         }
     });
 
     b18.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b18.getOrigin()) ;
         }
     });
 
     b19.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b19.getOrigin()) ;
         }
     });
 
     b20.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b20.getOrigin()) ;
         }
     });
 
     b21.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b21.getOrigin()) ;
         }
     });
 
     b22.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b22.getOrigin()) ;
         }
     });
 
     b23.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b23.getOrigin()) ;
         }
     });
 
     b24.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b24.getOrigin()) ;
         }
     });
 
     b25.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b25.getOrigin()) ;
         }
     });
 
     b26.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b26.getOrigin()) ;
         }
     });
 
     b27.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b27.getOrigin()) ;
         }
     });
 
     b28.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b28.getOrigin()) ;
         }
     });
 
     b29.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b29.getOrigin()) ;
         }
     });
 
     b30.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b30.getOrigin()) ;
         }
     });
 
     b31.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b31.getOrigin()) ;
         }
     });
     b32.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b32.getOrigin()) ;
         }
     });
 
     b33.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b33.getOrigin()) ;
         }
     });
 
     b34.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b34.getOrigin()) ;
         }
     });
 
     b35.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b35.getOrigin()) ;
         }
     });
 
     b36.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b36.getOrigin()) ;
         }
     });
 
     b37.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b37.getOrigin()) ;
         }
     });
 
     b38.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b38.getOrigin()) ;
         }
     });
 
     b39.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b39.getOrigin()) ;
         }
     });
 
     b40.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b40.getOrigin()) ;
         }
     });
 
     b41.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b41.getOrigin()) ;
         }
     });
     b42.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b42.getOrigin()) ;
         }
     });
 
     b43.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b43.getOrigin()) ;
         }
     });
 
     b44.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b44.getOrigin()) ;
         }
     });
     b45.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt)  {
-            arenaGridActionPerformed(evt, b1.getOrigin()) ;
+            arenaGridActionPerformed(evt, b45.getOrigin()) ;
         }
     });
 }  
