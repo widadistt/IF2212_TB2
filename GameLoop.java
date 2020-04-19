@@ -12,7 +12,7 @@ public class GameLoop implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent arg0) {
-        //this.gamePanel.doOneLoop();
+        this.gamePanel.doOneLoop();
     }
 
 

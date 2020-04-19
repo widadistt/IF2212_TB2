@@ -10,7 +10,7 @@ public class Constants {
     public static final int BOARD_HEIGHT = 700;
 
     // game speed
-    public static final int GAME_SPEED = 50;
+    public static final int GAME_SPEED = 250;
 
     // bullet speed
     public static final int BULLET_SPEED = 10;
@@ -28,7 +28,7 @@ public class Constants {
     public static final String SNOWPEA_URL = "img/SnowPea2.jpg";
     public static final String ROBOT_ZOMBIE_URL = "img/Zombie1b.png";
     public static final String CRAZY_ZOMBIE_URL = "img/CrazyZombie1.png";
-    public static final String SUNFLOWER_URL = "img/Sunflower1a.png";
+    public static final String SUNFLOWER_URL = "img/sun.png";
     public static final String PEASHOOTER_BULLET_URL = "img/ProjectilePea.png";
     public static final String SNOWPEA_BULLET_URL = "img/ProjectileSnowPea.png";
     public static final String PEASHOOTER_CARD_URL = "img/card_peashooter.png";

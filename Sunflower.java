@@ -11,27 +11,32 @@ public class Sunflower extends Element implements MouseListener{
     private GamePanel gamePanel;
     private int endOrdinat;
     private int step = 5;
-    private JPanel elmtPanel;
+    private BoardPoint bPoint;
     
     public Sunflower(GamePanel gamePanel) {
-        super(new BoardPoint(0,0));
+        super(new BoardPoint(0, 0));
+        setType('F');
         Random rnd = new Random();
-        setOrigin(rnd.nextInt(900)+25, rnd.nextInt(500)+25);
-        setEndordinat(rnd.nextInt(500)+25);
-        //add to list of sunflower
+        int ordinat = rnd.nextInt(500);
+        setOrigin(rnd.nextInt(900)+25, ordinat+25);
+        setEndordinat(getEndOrdinat() + rnd.nextInt(975-ordinat));
+        //setLocation(bPoint.getAbsis(), bPoint.getOrdinat());
         this.gamePanel = gamePanel;
         setImageIcon(ImageFactory.createImage(Image.SUNFLOWER));
+        /*
         elmtPanel = new JPanel() {
             protected void paintComponent(Graphics g) {
                super.paintComponent(g);
                g.drawImage(getImageIcon().getImage(), 0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT, null);
             }
         };
+        
         elmtPanel.setSize(80,80);
         elmtPanel.setLocation(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat());
         elmtPanel.addMouseListener(this);
         elmtPanel.setVisible(true);
         gamePanel.add(elmtPanel);
+        */
     }
 
     public int getEndOrdinat() {
@@ -44,11 +49,13 @@ public class Sunflower extends Element implements MouseListener{
 
     public void update() {
         if (this.getOrigin().getOrdinat() + step <= endOrdinat) {
-            this.setOrigin(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat() + step);
+            setOrigin(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat() + step);
         } else {
-            this.setOrigin(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat() + step - endOrdinat);
+            setOrigin(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat() + step - endOrdinat);
+            gamePanel.addSunflowerPoints(50);
+            GamePanel.elmtList.remove(this);
         }
-        elmtPanel.setLocation(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat());
+        //elmtPanel.setLocation(this.getOrigin().getAbsis(), this.getOrigin().getOrdinat());
     }
 
     public void mousePressed(MouseEvent e) {
@@ -56,13 +63,14 @@ public class Sunflower extends Element implements MouseListener{
     }
 
     public void mouseReleased(MouseEvent e) {
-        GamePanel.addSunflowerPoints(50);
-        //GamePanel.remove(this);
+        gamePanel.addSunflowerPoints(50);
         GamePanel.elmtList.remove(this);
     }
 
     public void mouseClicked(MouseEvent e) {
-
+        gamePanel.addSunflowerPoints(50);
+        //GamePanel.remove(this);
+        GamePanel.elmtList.remove(this);
     }
 
     public void mouseEntered(MouseEvent e) {

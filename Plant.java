@@ -50,6 +50,7 @@ public abstract class Plant extends Element{
 
     protected void shoot(int power){
         Bullet bullet = new Bullet(power,super.getOrigin().getAbsis()+1, super.getOrigin().getOrdinat());
+        GamePanel.elmtList.add(bullet);
         Game.addElement(bullet, false);
     }
 
@@ -64,7 +65,13 @@ public abstract class Plant extends Element{
         }
     }
     
-    public void move() {
+    public void update() {
+        //System.out.println("plant");
+        if (getType()== ('P')){
+            shoot(1);
+        } else {
+            shoot(3);
+        }
         //move here
 
         //check if the element go outside the boundary/frame

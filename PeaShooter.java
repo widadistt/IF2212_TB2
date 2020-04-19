@@ -14,6 +14,7 @@ public class PeaShooter extends Plant{
     }
 
     public void update(){
+        //System.out.println("peashooter");
         super.shoot(1);
     }
 

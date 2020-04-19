@@ -17,11 +17,11 @@ public class Arena{
 	
 	void checkArray() {
 		BoardPoint p; char c;
-        for (Element element : Game.elements){
+        for (Element element : GamePanel.elmtList){
             p = element.getOrigin();
             c = element.getType();
             // matrix ver
-            if (c != '-' || (c == '-' && mat[p.getOrdinat()-1][p.getAbsis()] == ' ')) {
+            if (p.getOrdinat() > 0 && (c != '-' || (c == '-' && mat[p.getOrdinat()-1][p.getAbsis()] == ' '))) {
                 mat[p.getOrdinat()-1][p.getAbsis()] = c;
             }    
         }
@@ -49,7 +49,7 @@ public class Arena{
 	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
         checkArray();
         // matrix ver
-        if (mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] == ' ') {
+        if (elmt.getOrigin().getOrdinat() > 0 && mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] == ' ') {
             mat[elmt.getOrigin().getOrdinat()-1][elmt.getOrigin().getAbsis()] = elmt.getType();
             deleteElement(elmt.getOrigin());
             return true;

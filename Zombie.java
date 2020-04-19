@@ -33,8 +33,13 @@ public abstract class Zombie extends Element{
     public void setLife(int life){
         this.life = life;
     }
-	public void walk() {
-		walk(1);
+	public void update() {
+		//System.out.println("zombie");
+		if (getType() =='R'){
+            walk(4);
+        } else {
+            walk(2);
+        }
 	}
 	
     protected void walk(int distance){
@@ -43,19 +48,16 @@ public abstract class Zombie extends Element{
 			p.translate(-1, 0);
 			distance--;
 			if (!Game.moveElement(this, p, true)) {
-				if (Plant.containsPlant(Game.getElements(p))) { //
-					distance = 0;
-					for (Element e : Game.getElements(p)) {
-						if (Plant.isPlant(e)) {
-							((Plant)e).eaten(1);
-						}
-					}
-				} else if (!Zombie.containsZombie(Game.getElements(p))){
-					Game.moveElement(this, p, false);
-					super.setOrigin(p);					
-					for (Element e : Game.getElements(p)) {
-						if (e.getType() == '-') {
-							((Bullet)e).kill(this);
+				for (Element e : Game.getElements(p)) {
+					if (e.getType() == 'P' || e.getType() == 'S') {
+						((Plant)e).eaten(1);
+					} else if (e.getType() == 'R' || e.getType() == 'C'){
+						Game.moveElement(this, p, false);
+						super.setOrigin(p);					
+						for (Element element : Game.getElements(p)) {
+							if (element.getType() == '-') {
+							((Bullet)element).kill(this);
+							}
 						}
 					}
 				}
