@@ -3,7 +3,8 @@ import javax.swing.JLabel;
 
 import java.awt.event.*;
 import java.awt.Graphics;
-
+import java.awt.*;  
+import javax.swing.*;
 // ui package
 
 public class GameMainFrame extends JFrame{
@@ -30,11 +31,11 @@ public class GameMainFrame extends JFrame{
         setResizable(false);
         setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
         setLayout(null);
-        /*
+        
+        JFrame f = new ArenaLayout();        
         add(ArenaLayout.pGrid, BorderLayout.CENTER);
         add(ArenaLayout.pPoint, BorderLayout.NORTH);
         add(ArenaLayout.pAdd, BorderLayout.WEST);
-        */
         setVisible(true);
     }
     public static void main(String[] args) {  
