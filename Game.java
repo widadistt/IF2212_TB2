@@ -40,7 +40,7 @@ public class Game{
                 addZombies();
             }
         }
-		sunflowerPoints += 50;
+		//sunflowerPoints += 50;
     }
 
     public static void addElement(Element elmt, boolean mustNotOverlap){
@@ -66,23 +66,32 @@ public class Game{
     }
 	
     public static boolean moveElement(Element elmt, BoardPoint p, boolean mustNotOverlap) { 
-	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
-		if (mustNotOverlap) {
-			return arena.moveElement(elmt, p);
+    // bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
+        boolean move = false;
+        if (mustNotOverlap) {
+			for (Element element : GamePanel.elmtList) {
+                if (element.getOrigin().getAbsis() == p.getAbsis()){
+                    if (element.getOrigin().getOrdinat() == p.getOrdinat()){
+                        move = false;
+                    }
+                }
+            }
 		} else {
-			arena.moveElement(elmt, p);
-			return true;
-		}
+			move = true;
+        }
+        return move;
     }
 	
 	public static List<Element> getElements(BoardPoint p) {
         List<Element> cElements = new ArrayList<Element>();
-        for (Element element : elements){
+        for (Element element : GamePanel.elmtList){
             if(element.getOrigin().equals(p)) {
 				cElements.add(element);
 			}
         }
-		return cElements;		
+        return cElements;	
+        
+        //(element.getOrigin().getAbsis() == p.getAbsis()) && (element.getOrigin().getOrdinat() == p.getOrdinat())
 	}
     
     public static void addPlants(BoardPoint p, String type){
@@ -90,6 +99,7 @@ public class Game{
         int y = (int) p.getOrdinat();
         Game.addPlants(x, y, type);
     }
+
     public static void addPlants(int x, int y, String type){
         Plant plant;
         if (type.equals("P") || (type.equals("p"))){

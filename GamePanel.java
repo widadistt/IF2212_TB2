@@ -20,6 +20,7 @@ public class GamePanel extends JPanel {
     public static boolean isShot;
     private SunflowerInjector sunflowerInjector;
     private JLabel sunflowerBoard;
+    //public static List<Sunflower> sunList;
 
     public GamePanel(JLabel sunflowerBoard) {
         initializeVariables();
@@ -29,20 +30,15 @@ public class GamePanel extends JPanel {
 
     private void initializeVariables() {
         this.backgroundImage = ImageFactory.createImage(Image.BACKGROUND);
-        sunflowerPoints = 3000;
+        sunflowerPoints = 5000;
         timer =  new Timer(Constants.GAME_SPEED, new GameLoop(this));
         this.timer.start();
         sunflowerInjector = new SunflowerInjector(this);
         sunflowerInjector.start();
 		elmtList = new ArrayList<Element>();
 		inGame = true;
-		
-		//DEBUG
-		elmtList.add(new RobotZombie(4,4));
-		elmtList.add(new RobotZombie(4,3));
-		elmtList.add(new RobotZombie(4,2));
-		elmtList.add(new RobotZombie(4,1));
-		elmtList.add(new RobotZombie(4,0));
+        elmtList.add(new RobotZombie(1,1));
+        //sunList.add(new Sunflower(this));
     }
 
     private void initializeLayout() {
@@ -57,18 +53,21 @@ public class GamePanel extends JPanel {
     }
 
     public void setSunflowerPoints (int sunflowerPoint) {
-        sunflowerPoint = sunflowerPoint;
-        // set sunScoreboard.setText(String.valueOf(sunScore));
+        sunflowerPoints = sunflowerPoint;
+        sunflowerBoard.setText(String.valueOf(getSunflowerPoints()));
     }
 
-    public static void addSunflowerPoints (int sunflowerPoint) {
-        sunflowerPoint += sunflowerPoint;
+    public void addSunflowerPoints (int sunflowerPoint) {
+        setSunflowerPoints(getSunflowerPoints() + sunflowerPoint);
+        //sunflowerBoard.setText(String.valueOf(getSunflowerPoints()));
     }
 
     private void drawElement(Graphics g) {
         if (inGame){
-            for (Element elmt: elmtList){
-                if (elmt.getOrigin().getAbsis() <= Constants.BOARD_WIDTH) {
+            List<Element> cElements = new ArrayList<Element>(GamePanel.elmtList);
+            for (Element elmt: cElements){
+                if (elmt.getOrigin().getAbsis() <= 100) {
+                    System.out.println(elmt.getType());
                     switch (elmt.getType()) {
                         case 'P':
                             g.drawImage(ImageFactory.createImage(Image.PEASHOOTER).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
@@ -104,28 +103,68 @@ public class GamePanel extends JPanel {
                 timer.stop();
             }
         }
-
-        Toolkit.getDefaultToolkit().sync();
     }
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         g.drawImage(ImageFactory.createImage(Image.BACKGROUND).getImage(), 0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT, null);
-        System.out.println("REPAINT");
 
-        drawElement(g);
+        //drawElement(g);
+        List<Element> cElements = new ArrayList<Element>(GamePanel.elmtList);
+        for (Element elmt: cElements){
+            if (elmt.getOrigin().getAbsis() <= 1000) {
+                System.out.println(elmt.getType());
+                switch (elmt.getType()) {
+                    case 'P':
+                        g.drawImage(ImageFactory.createImage(Image.PEASHOOTER).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        break;
+
+                    case 'S':
+                        g.drawImage(ImageFactory.createImage(Image.SNOWPEA).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        break;
+
+                    case 'R':
+                        g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        break;
+
+                    case 'C':
+                        g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        break;
+
+                    case 'F':
+                        //g.drawImage(ImageFactory.createImage(Image.SUNFLOWER).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        g.drawImage(ImageFactory.createImage(Image.SUNFLOWER).getImage(), elmt.getOrigin().getAbsis(), elmt.getOrigin().getOrdinat(), 50, 50, null);
+                        break;
+
+                    case '-':
+                        g.drawImage(ImageFactory.createImage(Image.PEASHOOTER_BULLET).getImage(), elmt.getOrigin().getAbsis() + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+        }
+        Toolkit.getDefaultToolkit().sync();
+        System.out.println("REPAINT");
     }
 
     public void doOneLoop() {
-        update();
+        this.update();
         repaint();
     }
 
     public void update() {
-        System.out.println("UPDATE");
         // plant shot, move zombie;
         //this.Plant.move();
+        System.out.println("UPDATE");
+        List<Element> cElements = new ArrayList<Element>(elmtList);
+        if (cElements.size() > 0) {
+            for (Element elmt: cElements){
+                elmt.update();
+            }
+        }
     }
 
     public void keyReleased(KeyEvent e) {
@@ -134,6 +173,7 @@ public class GamePanel extends JPanel {
     }
 
     public void keyPressed(KeyEvent e) {
+        /*
         //this.Plant.keyReleased(e);
         System.out.println("RELEASED");
         // if user press 'SPACE' then the game skip/update
@@ -144,5 +184,6 @@ public class GamePanel extends JPanel {
                 doOneLoop();
             }
         }
+        */
     }
 }

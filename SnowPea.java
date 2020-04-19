@@ -7,6 +7,7 @@ public class SnowPea extends Plant{
     }
     
     public void update(){
+        //System.out.println("snowpea");
         super.shoot(3);
     }
 
