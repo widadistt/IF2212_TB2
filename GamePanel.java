@@ -38,10 +38,9 @@ public class GamePanel extends JPanel {
 		if(elmtList == null) {
 			elmtList = new ArrayList<Element>();
 		}
-		inGame = true;
-		
 		new Game();
-		//DEBUG
+		inGame = true;
+        elmtList.add(new RobotZombie(1,1));
         //sunList.add(new Sunflower(this));
     }
 
