@@ -25,7 +25,7 @@ public class Game{
         elements = new ArrayList<Element>();
         end = false;
         Game.Start();
-        Game.arena.printArena();       
+//        Game.arena.printArena();       
     }
 
     public static void skip(){
@@ -90,7 +90,7 @@ public class Game{
         int y = (int) p.getOrdinat();
         Game.addPlants(x, y, type);
     }
-    public static void addPlants(int x, int y, String type){
+    public static void addPlants(int x, int y, String type) throws Exception{
         Plant plant;
         if (type.equals("P") || (type.equals("p"))){
 			if (sunflowerPoints >= 350) {

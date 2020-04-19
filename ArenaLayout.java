@@ -221,7 +221,7 @@ public ArenaLayout(){
     //    BufferedImage myImage = ImageIO.read("img\\Background2.jpg");
     //    f.setContentPane(new ImagePanel(myImage));
     pGrid.setSize(900,500);
-    pGrid.setBackground(new Color(0,0,0,100));
+    pGrid.setBackground(new Color(255,255,255,0));
     pAdd.setSize(100, 100);
     pPoint.setSize(600,100);    
 /*
