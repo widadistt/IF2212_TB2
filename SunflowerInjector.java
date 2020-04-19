@@ -10,17 +10,19 @@ public class SunflowerInjector implements Runnable {
 
     public void run() {
         try {
-            Sunflower sf  = new Sunflower(this.gamePanel);
-            Thread.sleep(5000);
+            Sunflower sf  = new Sunflower(gamePanel);
+            GamePanel.elmtList.add(sf);
+            //gamePanel.add(sf);
+            sunfThread.sleep(2000);
         } catch (Exception e) {
             System.out.println("Exception in Sunflower Injector");
         }
     }
 
     public void start () {
-        if (sunfThread == null) {
+        //if (sunfThread == null) {
            sunfThread = new Thread(this);
-           sunfThread.start ();
-        }
+           sunfThread.start();
+        //}
      }
 }

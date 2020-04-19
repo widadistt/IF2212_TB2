@@ -41,7 +41,7 @@ public class GameOpeningFrame extends JFrame {
       });
 
       setDefaultCloseOperation(EXIT_ON_CLOSE);
-      setLocationRelativeTo(null);
+      //setLocationRelativeTo(null);
       setResizable(false);
       setSize(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT);
       setLayout(null);

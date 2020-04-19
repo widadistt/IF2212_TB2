@@ -502,10 +502,12 @@ public ArenaLayout(){
          //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());
             Game.addPlants(p,Game.type);    
     }
+
     public void addButtonActionPerformed(java.awt.event.ActionEvent evt, String s) {                                              
         //System.out.println("haihaihai" + p.getOrdinat() + " " + p.getAbsis());  
        Game.type = s;    
-   }
+    }
+    
     public static void main(String[] args) {  
         new ArenaLayout();     
         new Game(); 

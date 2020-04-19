@@ -8,7 +8,6 @@ import javax.swing.*;
 public class Game{
     public static Arena arena;
     public static int sunflowerPoints;
-    public static List<Element> elements;
     public static boolean end;
     public static Point p; //untuk addPlants
     public static String type; //untuk addPlants
@@ -24,7 +23,9 @@ public class Game{
     public Game(){
         Game.arena = new Arena();
         sunflowerPoints = 5000;
-        elements = new ArrayList<Element>();
+		if (GamePanel.elmtList == null) {
+			GamePanel.elmtList = new ArrayList<Element>();
+		}
         end = false;
         Game.start();
 //        Game.arena.printArena();       
@@ -35,56 +36,65 @@ public class Game{
             if ((Arena.mat[1][0] == 'C') || (Arena.mat[1][0] == 'R') || (Arena.mat[2][0] == 'C') || (Arena.mat[2][0] == 'R') || (Arena.mat[3][0] == 'C') || (Arena.mat[3][0] == 'R') || (Arena.mat[0][0] == 'C') || (Arena.mat[0][0] == 'R')){ // cek ada zombie diujung ato ngga
                 end = true;
             } else {
-                List<Element> cElements = new ArrayList<Element>(elements);
+                List<Element> cElements = new ArrayList<Element>(GamePanel.elmtList);
                 for (Element element : cElements){
                     element.update();
                 }
                 addZombies();
             }
         }
-		sunflowerPoints += 50;
+		//sunflowerPoints += 50;
     }
 
     public static void addElement(Element elmt, boolean mustNotOverlap){
         
         if (mustNotOverlap) {
 			if (arena.addElement(elmt)) {
-                elements.add(elmt);
-                GamePanel.elmtList = elements; //Penyamaan Game dan GamePanel
+                GamePanel.elmtList.add(elmt);
+                GamePanel.elmtList = GamePanel.elmtList; //Penyamaan Game dan GamePanel
 			}
 		} else {
-			elements.add(elmt);
+			GamePanel.elmtList.add(elmt);
 			arena.addElement(elmt);
 		}
     }
 
     public static void deleteElement(Element elmt){
-		if (elements.contains(elmt)) {
+		if (GamePanel.elmtList.contains(elmt)) {
 			arena.deleteElement(elmt.getOrigin());
-			elements.remove(elmt);
+			GamePanel.elmtList.remove(elmt);
 			if (elmt.getType() == 'R' || elmt.getType() == 'C') {
 			} 
 		}
     }
 	
     public static boolean moveElement(Element elmt, BoardPoint p, boolean mustNotOverlap) { 
-	// bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
-		if (mustNotOverlap) {
-			return arena.moveElement(elmt, p);
+    // bila elemen di p kosong, pindah elmt ke p dan return true. bila tidak, hanya return false.
+        boolean move = false;
+        if (mustNotOverlap) {
+			for (Element element : GamePanel.elmtList) {
+                if (element.getOrigin().getAbsis() == p.getAbsis()){
+                    if (element.getOrigin().getOrdinat() == p.getOrdinat()){
+                        move = false;
+                    }
+                }
+            }
 		} else {
-			arena.moveElement(elmt, p);
-			return true;
-		}
+			move = true;
+        }
+        return move;
     }
 	
 	public static List<Element> getElements(BoardPoint p) {
         List<Element> cElements = new ArrayList<Element>();
-        for (Element element : elements){
+        for (Element element : GamePanel.elmtList){
             if(element.getOrigin().equals(p)) {
 				cElements.add(element);
 			}
         }
-		return cElements;		
+        return cElements;	
+        
+        //(element.getOrigin().getAbsis() == p.getAbsis()) && (element.getOrigin().getOrdinat() == p.getOrdinat())
 	}
     
     public static void addPlants(BoardPoint p, String type){
@@ -104,7 +114,7 @@ public class Game{
 			if (sunflowerPoints >= 350) {
 				plant = new PeaShooter(x, y);
 				addElement(plant, true);
-				if (!elements.contains(plant)) {
+				if (!GamePanel.elmtList.contains(plant)) {
 					sunflowerPoints += 350;
                     System.out.println("Sudah terisi");
                     throw new IsFilledException();
@@ -117,7 +127,7 @@ public class Game{
 			if (sunflowerPoints >= 600) {
 				plant = new SnowPea(x,y);
 				addElement(plant, true);
-				if (!elements.contains(plant)) {
+				if (!GamePanel.elmtList.contains(plant)) {
 					sunflowerPoints += 600;
                     System.out.println("Sudah terisi");
                     throw new IsFilledException();

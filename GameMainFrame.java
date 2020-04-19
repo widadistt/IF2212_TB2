@@ -20,7 +20,7 @@ public class GameMainFrame extends JFrame{
     }
 
     private void initializeLayout(){
-        add(new GamePanel(new JLabel()));
+        add(new GamePanel());
         setTitle(Constants.TITLE);
         setIconImage(ImageFactory.createImage(Image.ICON).getImage());
         
@@ -42,5 +42,5 @@ public class GameMainFrame extends JFrame{
         new GameMainFrame();  
         new Game(); 
            
-    }  
+    }
 }
