@@ -39,9 +39,6 @@ public class GameOpeningFrame extends JFrame {
             setVisible(false);
          }
       });
-      if (isStart) {
-      
-      }
 
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       setLocationRelativeTo(null);

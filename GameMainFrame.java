@@ -1,4 +1,6 @@
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import java.awt.event.*;
 import java.awt.Graphics;
 
@@ -17,7 +19,7 @@ public class GameMainFrame extends JFrame{
     }
 
     private void initializeLayout(){
-        add(new GamePanel());
+        add(new GamePanel(new JLabel()));
         setTitle(Constants.TITLE);
         setIconImage(ImageFactory.createImage(Image.ICON).getImage());
         

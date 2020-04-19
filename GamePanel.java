@@ -1,6 +1,7 @@
 // ui package
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,20 +12,27 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel {
     private ImageIcon backgroundImage;
+    private int sunflowerPoints;
     private Timer timer;
-    public static List<Element> elements;
+    public static List<Element> elmtList;
     private boolean inGame;
     public static boolean isShot;
+    private SunflowerInjector sunflowerInjector;
+    private JLabel sunflowerBoard;
 
-    public GamePanel() {
+    public GamePanel(JLabel sunflowerBoard) {
         initializeVariables();
         initializeLayout();
+        this.sunflowerBoard = sunflowerBoard;
     }
 
     private void initializeVariables() {
         this.backgroundImage = ImageFactory.createImage(Image.BACKGROUND);
+        sunflowerPoints = 3000;
         timer =  new Timer(Constants.GAME_SPEED, new GameLoop(this));
         this.timer.start();
+        sunflowerInjector = new SunflowerInjector(this);
+        sunflowerInjector.start();
     }
 
     private void initializeLayout() {
@@ -34,9 +42,22 @@ public class GamePanel extends JPanel {
         setPreferredSize(new Dimension(Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT));
     }
 
+    public int getSunflowerPoints() {
+        return sunflowerPoints;
+    }
+
+    public void setSunflowerPoints (int sunflowerPoint) {
+        sunflowerPoint = sunflowerPoint;
+        // set sunScoreboard.setText(String.valueOf(sunScore));
+    }
+
+    public static void addSunflowerPoints (int sunflowerPoint) {
+        sunflowerPoint += sunflowerPoint;
+    }
+
     private void drawElement(Graphics g) {
         if (inGame){
-            for (Element elmt: elements){
+            for (Element elmt: elmtList){
                 if (elmt.getOrigin().getAbsis() <= Constants.BOARD_WIDTH) {
                     switch (elmt.getType()) {
                         case 'P':
@@ -80,7 +101,7 @@ public class GamePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.drawImage(backgroundImage.getImage(), 0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT, null);
+        g.drawImage(ImageFactory.createImage(Image.BACKGROUND).getImage(), 0, 0, Constants.BOARD_WIDTH, Constants.BOARD_HEIGHT, null);
         System.out.println("REPAINT");
 
         drawElement(g);

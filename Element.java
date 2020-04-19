@@ -1,16 +1,21 @@
+
 import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 public abstract class Element{
     private Point origin;
-    private Image image;
+    private ImageIcon elmtIcon;
     private boolean dead;
     private char type;
+    private JPanel elmtPanel;
 
     public Element(Point origin){
         this.origin = origin;
         this.dead = false;
         //this.image = 
     }
+
 
     public Element(int x, int y){
         Point point = new Point(x,y);
@@ -34,12 +39,12 @@ public abstract class Element{
         origin.setOrdinat(point.getOrdinat());
     }
 
-    public void setImage (Image image) {
-        this.image = image;
+    public void setImageIcon (ImageIcon imageIcon) {
+        this.elmtIcon =  imageIcon;
     }
 
-    public Image getImage() {
-        return image;
+    public ImageIcon getImageIcon() {
+        return elmtIcon;
     }
 
     public void setDead(boolean dead) {

@@ -26,10 +26,10 @@ public ArenaLayout(){
     ArenaGrid b3 = new ArenaGrid(3,1);  
     ArenaGrid b4 = new ArenaGrid(4,1);  
     ArenaGrid b5 = new ArenaGrid(5,1);  
-    ArenaGrid b6=new ArenaGrid(6,1);  
-    ArenaGrid b7=new ArenaGrid(7,1);  
-    ArenaGrid b8=new ArenaGrid(8,1);  
-    ArenaGrid b9=new ArenaGrid(9,1); 
+    ArenaGrid b6 =new ArenaGrid(6,1);  
+    ArenaGrid b7 =new ArenaGrid(7,1);  
+    ArenaGrid b8 =new ArenaGrid(8,1);  
+    ArenaGrid b9 =new ArenaGrid(9,1); 
 //row2
     ArenaGrid b10=new ArenaGrid(1,2);   
     ArenaGrid b11=new ArenaGrid(2,2);  
@@ -152,6 +152,7 @@ public ArenaLayout(){
 
     Point pSelect;
     char type;
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     
 

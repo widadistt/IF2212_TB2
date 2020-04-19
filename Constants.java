@@ -23,7 +23,7 @@ public class Constants {
 
     // image
     public static final String BACKGROUND_URL = "img/362210.jpg";
-    public static final String OPENING_URL = "img/Opening2.png";
+    public static final String OPENING_URL = "img/OpeningFix.png";
     public static final String PEASHOOTER_URL = "img/Pea.png";
     public static final String SNOWPEA_URL = "img/SnowPea2.jpg";
     public static final String ROBOT_ZOMBIE_URL = "img/Zombie1b.png";
