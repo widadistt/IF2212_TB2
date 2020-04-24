@@ -9,7 +9,6 @@ public abstract class Element{
     private BoardPoint origin;
     private boolean dead;
     private char type;
-    private JPanel elmtPanel;
 
     public Element(BoardPoint origin){
         this.origin = origin;

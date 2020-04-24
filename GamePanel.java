@@ -22,8 +22,8 @@ public class GamePanel extends JPanel {
     private boolean inGame;
     public static boolean isShot;
     private SunflowerInjector sunflowerInjector;
+    private ZombieInjector zombieInjector;
     private JLabel sunflowerBoard;
-    //public static List<Sunflower> sunList;
 
     public GamePanel() {
         initializeVariables();
@@ -38,15 +38,16 @@ public class GamePanel extends JPanel {
         this.timer.start();
 
         sunflowerBoard = new JLabel();
-        //this.add(sunflowerBoard, 2);
-        //add(sunflowerBoard);
         sunflowerBoard.setBackground(Color.YELLOW);
         sunflowerBoard.setText(String.valueOf(getSunflowerPoints()));
         sunflowerBoard.setLocation(200, 100);
         sunflowerBoard.setVisible(true);
-
+    
         sunflowerInjector = new SunflowerInjector(this);
         sunflowerInjector.start();
+
+        zombieInjector = new ZombieInjector(this);
+        zombieInjector.start();
 
 		if(elmtList == null) {
 			elmtList = new ArrayList<Element>();
@@ -54,9 +55,6 @@ public class GamePanel extends JPanel {
         
 		new Game();
 		inGame = true;
-        elmtList.add(new RobotZombie(9,4));
-       // add(new ArenaLayout());
-        //setVisible(false);
     }
 
     private void initializeLayout() {
@@ -143,12 +141,13 @@ public class GamePanel extends JPanel {
                         break;
 
                     case 'R':
-                        g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), (elmt.getOrigin().getAbsis()*70) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
-                        //g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), (elmt.getOrigin().getOrdinat()), 60, 100, null);
+                        //g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), (elmt.getOrigin().getAbsis()) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), (elmt.getOrigin().getOrdinat()), 60, 100, null);
                         break;
 
                     case 'C':
-                        g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), (elmt.getOrigin().getAbsis()*70) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        //g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), (elmt.getOrigin().getAbsis()) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
+                        g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), elmt.getOrigin().getAbsis(), (elmt.getOrigin().getOrdinat()), 60, 100, null);
                         break;
 
                     case 'F':

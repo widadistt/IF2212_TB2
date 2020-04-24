@@ -2,6 +2,8 @@ import java.util.List;
 
 public abstract class Zombie extends Element{
     private int life;
+    private GamePanel gamePanel;
+    private BoardPoint bPoint;
 
 	public static boolean isZombie(Element e) {
 		return e.getType() == 'R' || e.getType() == 'C';
@@ -33,12 +35,21 @@ public abstract class Zombie extends Element{
     public void setLife(int life){
         this.life = life;
     }
+
+    public GamePanel getGamePanel(){
+        return gamePanel;
+    }
+
+    public void setGamePanel(GamePanel gamePanel){
+        this.gamePanel = gamePanel ;
+    }
+
 	public void update() {
 		//System.out.println("zombie");
 		if (getType() =='R'){
-            walk(4);
+            walk(10);
         } else {
-            walk(2);
+            walk(15);
         }
 	}
 	
