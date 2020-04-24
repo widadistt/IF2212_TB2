@@ -78,49 +78,6 @@ public class GamePanel extends JPanel {
         //sunflowerBoard.setText(String.valueOf(getSunflowerPoints()));
     }
 
-    private void drawElement(Graphics g) {
-        if (inGame){
-            List<Element> cElements = new ArrayList<Element>(GamePanel.elmtList);
-            for (Element elmt: cElements){
-                if (elmt.getOrigin().getAbsis() <= 100) {
-                    System.out.println(elmt.getType());
-                    switch (elmt.getType()) {
-                        case 'P':
-                            g.drawImage(ImageFactory.createImage(Image.PEASHOOTER).getImage(), (elmt.getOrigin().getAbsis() * 77) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
-                            break;
-
-                        case 'S':
-                            g.drawImage(ImageFactory.createImage(Image.SNOWPEA).getImage(), (elmt.getOrigin().getAbsis() * 77) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
-                            break;
-
-                        case 'R':
-                            g.drawImage(ImageFactory.createImage(Image.ROBOT_ZOMBIE).getImage(), (elmt.getOrigin().getAbsis() * 77) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
-                            break;
-
-                        case 'C':
-                            g.drawImage(ImageFactory.createImage(Image.CRAZY_ZOMBIE).getImage(), (elmt.getOrigin().getAbsis() * 77) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
-                            break;
-
-                        case 'F':
-                            g.drawImage(ImageFactory.createImage(Image.SUNFLOWER).getImage(), (elmt.getOrigin().getAbsis() * 77) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);    
-                            break;
-
-                        case '-':
-                            g.drawImage(ImageFactory.createImage(Image.PEASHOOTER_BULLET).getImage(), (elmt.getOrigin().getAbsis() * 77) + 280, (elmt.getOrigin().getOrdinat() * 117) + 90, 60, 100, null);
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                }
-            }
-        } else {
-            if (timer.isRunning()){
-                timer.stop();
-            }
-        }
-    }
-
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -166,6 +123,11 @@ public class GamePanel extends JPanel {
         }
         Toolkit.getDefaultToolkit().sync();
         System.out.println("REPAINT");
+        if (!inGame){
+            if (timer.isRunning()){
+                timer.stop();
+            }
+        }
     }
 
     public void doOneLoop() {
