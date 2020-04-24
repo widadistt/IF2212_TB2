@@ -75,7 +75,7 @@ public abstract class Zombie extends Element{
 			} else {
 				super.setOrigin(p);
 			}
-			if (p.getAbsis() <= 1) {
+			if (p.getAbsis() <= 280) {
 				distance = 0;
 			}
 		}

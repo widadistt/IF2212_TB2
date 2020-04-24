@@ -7,7 +7,7 @@ public class RobotZombie extends Zombie{
         super.setType('R');
         Random rnd = new Random();
         int y = rnd.nextInt(4);
-        setOrigin(Constants.BOARD_WIDTH -20, (y*117) + 90);
+        setOrigin(Constants.BOARD_WIDTH -50, (y*117) + 90);
         setGamePanel(gamePanel);
         setImageIcon(ImageFactory.createImage(Image.ROBOT_ZOMBIE));
     }

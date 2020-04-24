@@ -10,10 +10,12 @@ public class SunflowerInjector implements Runnable {
 
     public void run() {
         try {
-            Sunflower sf  = new Sunflower(gamePanel);
-            GamePanel.elmtList.add(sf);
-            //gamePanel.add(sf);
-            sunfThread.sleep(2000);
+            int i = 1;
+            while (i <=100) {
+                Sunflower sf  = new Sunflower(gamePanel);
+                GamePanel.elmtList.add(sf);
+                sunfThread.sleep(5000);
+            }
         } catch (Exception e) {
             System.out.println("Exception in Sunflower Injector");
         }
