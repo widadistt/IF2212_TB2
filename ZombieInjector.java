@@ -1,11 +1,10 @@
 import java.util.Random;
 
 public class ZombieInjector implements Runnable {
-    private GamePanel gamePanel;
     private Thread zombieThread;
     
-    public ZombieInjector(GamePanel gp) {
-        this.gamePanel = gp;
+    public ZombieInjector() {
+
     }
 
     public void run() {
@@ -15,13 +14,13 @@ public class ZombieInjector implements Runnable {
             while (i <=15) {
                 int type = random.nextInt(2);
                 if (type == 1){
-                    RobotZombie robotZombie = new RobotZombie(gamePanel);
+                    RobotZombie robotZombie = new RobotZombie();
                     GamePanel.elmtList.add(robotZombie);
                 } else {
-                    CrazyZombie crazyZombie = new CrazyZombie(gamePanel);
+                    CrazyZombie crazyZombie = new CrazyZombie();
                     GamePanel.elmtList.add(crazyZombie);
                 }
-                zombieThread.sleep(5000);   
+                zombieThread.sleep(10000);   
             }
         } catch (Exception e) {
             System.out.println("Exception in Zombie Injector");

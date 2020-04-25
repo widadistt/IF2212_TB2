@@ -2,7 +2,6 @@ import java.util.List;
 
 public abstract class Zombie extends Element{
     private int life;
-    private GamePanel gamePanel;
     private BoardPoint bPoint;
 
 	public static boolean isZombie(Element e) {
@@ -34,14 +33,6 @@ public abstract class Zombie extends Element{
 
     public void setLife(int life){
         this.life = life;
-    }
-
-    public GamePanel getGamePanel(){
-        return gamePanel;
-    }
-
-    public void setGamePanel(GamePanel gamePanel){
-        this.gamePanel = gamePanel ;
     }
 
 	public void update() {
