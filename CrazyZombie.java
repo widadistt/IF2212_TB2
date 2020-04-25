@@ -13,6 +13,6 @@ public class CrazyZombie extends Zombie{
     }
     
     public void update(){
-        super.walk(15);
+        super.walk(2);
     }
 }

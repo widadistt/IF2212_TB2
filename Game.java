@@ -40,7 +40,7 @@ public class Game{
                 for (Element element : cElements){
                     element.update();
                 }
-                addZombies();
+                //addZombies();
             }
         }
 		//sunflowerPoints += 50;
@@ -77,6 +77,11 @@ public class Game{
                     if (element.getOrigin().getOrdinat() == p.getOrdinat()){
                         move = false;
                     }
+                    else {
+                        move = true;
+                    }
+                } else {
+                    move = true;
                 }
             }
 		} else {
@@ -98,15 +103,15 @@ public class Game{
 	}
     
     public static void addPlants(BoardPoint p, String type){
-    try {    
-        int x = (int) p.getAbsis();
-        int y = (int) p.getOrdinat();
-        Game.addPlants(x, y, type);
-    } catch (IsFilledException | SunflowerpointsNotEnoughException a){
-        JFrame f = new JFrame();
-        String message = "["+a.getClass().getName()+"] " + a.getMessage();
-        JOptionPane.showMessageDialog(f, message); 
-    }
+        try {    
+            int x = (int) p.getAbsis();
+            int y = (int) p.getOrdinat();
+            Game.addPlants(x, y, type);
+        } catch (IsFilledException | SunflowerpointsNotEnoughException a){
+            JFrame f = new JFrame();
+            String message = "["+a.getClass().getName()+"] " + a.getMessage();
+            JOptionPane.showMessageDialog(f, message); 
+        }
     }
     public static void addPlants(int x, int y, String type) throws IsFilledException, SunflowerpointsNotEnoughException {
         Plant plant;
@@ -140,7 +145,7 @@ public class Game{
             System.out.println("Input tipe salah");
         }
     }
-
+/*
     public static void addZombies(){
         Random random = new Random();
         int randomNumb = random.nextInt(5);
@@ -153,7 +158,7 @@ public class Game{
         }
         addElement(zombie, true);      
     }
-
+*/
     public static void printCommand(){
         System.out.println("COMMAND :");
         System.out.println("SKIP");

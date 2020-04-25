@@ -47,9 +47,9 @@ public abstract class Zombie extends Element{
 	public void update() {
 		//System.out.println("zombie");
 		if (getType() =='R'){
-            walk(10);
+            walk(1);
         } else {
-            walk(15);
+            walk(2);
         }
 	}
 	
@@ -57,12 +57,18 @@ public abstract class Zombie extends Element{
         BoardPoint p = super.getOrigin();
         while (distance > 0) {
 			p.translate(-1, 0);
-			distance--;
+            distance--;
+            if (p.getAbsis() <= 280) {
+				distance = 0;
+			}
 			if (!Game.moveElement(this, p, true)) {
+                System.out.println("move");
 				for (Element e : Game.getElements(p)) {
 					if (e.getType() == 'P' || e.getType() == 'S') {
+                        System.out.println("move if");
 						((Plant)e).eaten(1);
 					} else if (e.getType() == 'R' || e.getType() == 'C'){
+                        System.out.println("move else");
 						Game.moveElement(this, p, false);
 						super.setOrigin(p);					
 						for (Element element : Game.getElements(p)) {
@@ -74,9 +80,6 @@ public abstract class Zombie extends Element{
 				}
 			} else {
 				super.setOrigin(p);
-			}
-			if (p.getAbsis() <= 280) {
-				distance = 0;
 			}
 		}
     }

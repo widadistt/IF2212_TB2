@@ -13,6 +13,6 @@ public class RobotZombie extends Zombie{
     }
     
     public void update(){
-        super.walk(10);
+        super.walk(1);
     }
 }
