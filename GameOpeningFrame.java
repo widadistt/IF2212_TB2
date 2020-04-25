@@ -8,6 +8,7 @@ import javax.swing.*;
 public class GameOpeningFrame extends JFrame {
    private boolean isStart;
    private GameMainFrame gmf;
+   private ArenaLayout arenaLayout;
    
    public GameOpeningFrame(){
       initializeVariables();
@@ -33,8 +34,8 @@ public class GameOpeningFrame extends JFrame {
       add(openingButton);
       openingButton.addActionListener(new ActionListener(){  
          public void actionPerformed(ActionEvent e){  
-            gmf = new GameMainFrame();
-            gmf.setVisible(true);
+            arenaLayout = new ArenaLayout();
+            arenaLayout.setVisible(true);
             //this.add(gmf);
             setVisible(false);
          }
