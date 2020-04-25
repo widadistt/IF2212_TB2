@@ -46,7 +46,7 @@ public class GamePanel extends JPanel {
         sunflowerInjector = new SunflowerInjector(this);
         sunflowerInjector.start();
 
-        zombieInjector = new ZombieInjector(this);
+        zombieInjector = new ZombieInjector();
         zombieInjector.start();
 
 		if(elmtList == null) {
