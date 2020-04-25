@@ -73,11 +73,15 @@ public class Game{
         boolean move = false;
         if (mustNotOverlap) {
 			for (Element element : GamePanel.elmtList) {
-                if (element.getOrigin().getAbsis() == p.getAbsis()){
-                    if (element.getOrigin().getOrdinat() == p.getOrdinat()){
-                        move = false;
-                    }
-                    else {
+                if (element.getOrigin().getAbsis() < p.getAbsis()){
+                    if (element.getOrigin().getAbsis() > p.getAbsis()-117){
+                        if (element.getOrigin().getOrdinat() == p.getOrdinat()){
+                            move = false;
+                        }
+                        else {
+                            move = true;
+                        }
+                    }else {
                         move = true;
                     }
                 } else {
